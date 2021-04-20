@@ -1,7 +1,7 @@
 ﻿
 namespace JamesMoonNoahConveryAssgt
 {
-    partial class Form1
+    partial class Groan
     {
         /// <summary>
         ///  Required designer variable.
@@ -42,14 +42,14 @@ namespace JamesMoonNoahConveryAssgt
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // Groan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 369);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Groan";
+            this.Text = "Groan";
             this.ResumeLayout(false);
 
         }
