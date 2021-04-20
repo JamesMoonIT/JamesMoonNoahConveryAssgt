@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace JamesMoonNoahConveryAssgt
 {
-    public partial class Groan : Form
+    public partial class frmGroanGame : Form
     {
-        public Groan()
+        public frmGroanGame()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
