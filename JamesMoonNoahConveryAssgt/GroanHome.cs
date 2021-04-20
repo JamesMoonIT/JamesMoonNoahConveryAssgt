@@ -27,5 +27,16 @@ namespace JamesMoonNoahConveryAssgt
         {
             Application.Exit();
         }
+
+        private void rbOnePlayer_CheckedChanged(object sender, EventArgs e)
+        {
+            lblPlayerTwo.Visible = false;
+            
+        }
+
+        private void tbScoreLimit_Scroll(object sender, EventArgs e)
+        {
+            lblScoreLimit.Text = "Score Limit: First to " + tbScoreLimit.Value + " wins!";
+        }
     }
 }
