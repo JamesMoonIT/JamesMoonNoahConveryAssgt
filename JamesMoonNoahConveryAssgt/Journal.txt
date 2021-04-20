@@ -1,2 +1,15 @@
-﻿20/04/2021 
-Started project and worked on it for 3 hours
+﻿20/04/2021
+Members present: James and Noah
+- Created Forms
+	- GroanHome
+	- GroanRules
+	- GroanGame
+- Created textboxes, labels and trackbar on GroanHome
+- Added navigation to buttons btnStart, btnRules and btnClose
+- Added rules to form GroanRules
+Comments: James introduced Noah to Git and set up a repository of the game files. We established a basic design
+			of what GroanHome and GroanRules would work like. We also established workload we were going to work with
+			and how to approach each step of the assignment.
+
+
+(Next update)
