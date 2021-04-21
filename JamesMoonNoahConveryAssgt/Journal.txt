@@ -12,4 +12,6 @@ Comments: James introduced Noah to Git and set up a repository of the game files
 			and how to approach each step of the assignment.
 
 
+21/04/2021
+Members present: James and Noah
 (Next update)
