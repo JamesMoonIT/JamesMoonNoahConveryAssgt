@@ -29,6 +29,7 @@ namespace JamesMoonNoahConveryAssgt
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGroanRules));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblRules = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -46,12 +47,12 @@ namespace JamesMoonNoahConveryAssgt
             // lblRules
             // 
             this.lblRules.AutoSize = true;
-            this.lblRules.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRules.Location = new System.Drawing.Point(174, 63);
+            this.lblRules.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRules.Location = new System.Drawing.Point(1, 63);
             this.lblRules.Name = "lblRules";
-            this.lblRules.Size = new System.Drawing.Size(398, 64);
+            this.lblRules.Size = new System.Drawing.Size(801, 240);
             this.lblRules.TabIndex = 1;
-            this.lblRules.Text = "Two dice are used to play this game\r\nHello test\r\n";
+            this.lblRules.Text = resources.GetString("lblRules.Text");
             // 
             // frmGroanRules
             // 

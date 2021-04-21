@@ -21,5 +21,10 @@ namespace JamesMoonNoahConveryAssgt
         {
 
         }
+
+        private void lblRules_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

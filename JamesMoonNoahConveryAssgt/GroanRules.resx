@@ -57,4 +57,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblRules.Text" xml:space="preserve">
+    <value>Before playing players must agree on a set score to aim for
+First person to hit the goal wins
+Player who goes first is randomly decided
+Players have a cumulative score and a running score
+The running score is their score on their turn while cumulative is overall
+If you roll a single one on any dice you lose the running score and pass your turn
+If you roll snake eyes (two ones) then you lose both cumulative and running score
+Players can continue to roll until they choose to pass or get a one</value>
+  </data>
 </root>
