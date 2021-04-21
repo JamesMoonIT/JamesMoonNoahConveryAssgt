@@ -19,6 +19,8 @@ namespace JamesMoonNoahConveryAssgt
         private Graphics graDiceFive;
         private Graphics graDiceSix;
         private frmGroan groanHome;
+        private frmGroanRules groanRules;
+
         public frmGroanGame()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnRules_Click(object sender, EventArgs e)
         {
-            
+            groanRules.Show();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
