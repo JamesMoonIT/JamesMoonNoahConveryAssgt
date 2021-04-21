@@ -41,9 +41,15 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxRunningScore = new System.Windows.Forms.TextBox();
             this.btnRules = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.txtbxPlayer1Score = new System.Windows.Forms.TextBox();
+            this.txtbxPlayer2Score = new System.Windows.Forms.TextBox();
+            this.picbxDice1 = new System.Windows.Forms.PictureBox();
+            this.picbxDice2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).BeginInit();
             this.SuspendLayout();
             // 
             // picbxPlayerOneBack
@@ -133,6 +139,7 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxRunningScore.Enabled = false;
             this.txtbxRunningScore.Location = new System.Drawing.Point(342, 168);
             this.txtbxRunningScore.Name = "txtbxRunningScore";
+            this.txtbxRunningScore.ReadOnly = true;
             this.txtbxRunningScore.Size = new System.Drawing.Size(100, 23);
             this.txtbxRunningScore.TabIndex = 9;
             // 
@@ -144,6 +151,7 @@ namespace JamesMoonNoahConveryAssgt
             this.btnRules.TabIndex = 10;
             this.btnRules.Text = "Rules";
             this.btnRules.UseVisualStyleBackColor = true;
+            this.btnRules.Click += new System.EventHandler(this.btnRules_Click);
             // 
             // btnQuit
             // 
@@ -153,12 +161,51 @@ namespace JamesMoonNoahConveryAssgt
             this.btnQuit.TabIndex = 11;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
+            // 
+            // txtbxPlayer1Score
+            // 
+            this.txtbxPlayer1Score.Location = new System.Drawing.Point(21, 69);
+            this.txtbxPlayer1Score.Multiline = true;
+            this.txtbxPlayer1Score.Name = "txtbxPlayer1Score";
+            this.txtbxPlayer1Score.ReadOnly = true;
+            this.txtbxPlayer1Score.Size = new System.Drawing.Size(128, 369);
+            this.txtbxPlayer1Score.TabIndex = 12;
+            // 
+            // txtbxPlayer2Score
+            // 
+            this.txtbxPlayer2Score.Location = new System.Drawing.Point(650, 69);
+            this.txtbxPlayer2Score.Multiline = true;
+            this.txtbxPlayer2Score.Name = "txtbxPlayer2Score";
+            this.txtbxPlayer2Score.ReadOnly = true;
+            this.txtbxPlayer2Score.Size = new System.Drawing.Size(128, 369);
+            this.txtbxPlayer2Score.TabIndex = 13;
+            // 
+            // picbxDice1
+            // 
+            this.picbxDice1.Location = new System.Drawing.Point(206, 213);
+            this.picbxDice1.Name = "picbxDice1";
+            this.picbxDice1.Size = new System.Drawing.Size(131, 131);
+            this.picbxDice1.TabIndex = 14;
+            this.picbxDice1.TabStop = false;
+            // 
+            // picbxDice2
+            // 
+            this.picbxDice2.Location = new System.Drawing.Point(469, 213);
+            this.picbxDice2.Name = "picbxDice2";
+            this.picbxDice2.Size = new System.Drawing.Size(131, 131);
+            this.picbxDice2.TabIndex = 15;
+            this.picbxDice2.TabStop = false;
             // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.picbxDice2);
+            this.Controls.Add(this.picbxDice1);
+            this.Controls.Add(this.txtbxPlayer2Score);
+            this.Controls.Add(this.txtbxPlayer1Score);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnRules);
             this.Controls.Add(this.txtbxRunningScore);
@@ -176,6 +223,8 @@ namespace JamesMoonNoahConveryAssgt
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +244,9 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.TextBox txtbxRunningScore;
         private System.Windows.Forms.Button btnRules;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.TextBox txtbxPlayer1Score;
+        private System.Windows.Forms.TextBox txtbxPlayer2Score;
+        private System.Windows.Forms.PictureBox picbxDice1;
+        private System.Windows.Forms.PictureBox picbxDice2;
     }
 }
