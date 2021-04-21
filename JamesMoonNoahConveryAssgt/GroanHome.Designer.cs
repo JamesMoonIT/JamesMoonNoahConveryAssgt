@@ -37,17 +37,19 @@ namespace JamesMoonNoahConveryAssgt
             this.rbOnePlayer = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txbx = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbxPlayerTwoName = new System.Windows.Forms.TextBox();
             this.lblPlayerTwo = new System.Windows.Forms.Label();
             this.tbScoreLimit = new System.Windows.Forms.TrackBar();
             this.lblScoreLimit = new System.Windows.Forms.Label();
+            this.lblGroan = new System.Windows.Forms.Label();
+            this.lblBotName = new System.Windows.Forms.Label();
             this.gbNumberOfPlayers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbScoreLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(30, 308);
+            this.btnStart.Location = new System.Drawing.Point(19, 308);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 0;
@@ -57,7 +59,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(243, 308);
+            this.btnClose.Location = new System.Drawing.Point(228, 308);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 1;
@@ -67,7 +69,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // btnRules
             // 
-            this.btnRules.Location = new System.Drawing.Point(132, 308);
+            this.btnRules.Location = new System.Drawing.Point(124, 308);
             this.btnRules.Name = "btnRules";
             this.btnRules.Size = new System.Drawing.Size(75, 23);
             this.btnRules.TabIndex = 2;
@@ -78,7 +80,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.gbNumberOfPlayers.Controls.Add(this.rbTwoPlayers);
             this.gbNumberOfPlayers.Controls.Add(this.rbOnePlayer);
-            this.gbNumberOfPlayers.Location = new System.Drawing.Point(12, 12);
+            this.gbNumberOfPlayers.Location = new System.Drawing.Point(12, 73);
             this.gbNumberOfPlayers.Name = "gbNumberOfPlayers";
             this.gbNumberOfPlayers.Size = new System.Drawing.Size(306, 54);
             this.gbNumberOfPlayers.TabIndex = 3;
@@ -95,6 +97,7 @@ namespace JamesMoonNoahConveryAssgt
             this.rbTwoPlayers.TabStop = true;
             this.rbTwoPlayers.Text = "Two Players";
             this.rbTwoPlayers.UseVisualStyleBackColor = true;
+            this.rbTwoPlayers.CheckedChanged += new System.EventHandler(this.rbTwoPlayers_CheckedChanged);
             // 
             // rbOnePlayer
             // 
@@ -111,7 +114,7 @@ namespace JamesMoonNoahConveryAssgt
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 88);
+            this.label1.Location = new System.Drawing.Point(19, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 15);
             this.label1.TabIndex = 4;
@@ -119,22 +122,22 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // txbx
             // 
-            this.txbx.Location = new System.Drawing.Point(19, 106);
+            this.txbx.Location = new System.Drawing.Point(19, 167);
             this.txbx.Name = "txbx";
             this.txbx.Size = new System.Drawing.Size(100, 23);
             this.txbx.TabIndex = 5;
             // 
-            // textBox2
+            // txbxPlayerTwoName
             // 
-            this.textBox2.Location = new System.Drawing.Point(218, 106);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 6;
+            this.txbxPlayerTwoName.Location = new System.Drawing.Point(218, 167);
+            this.txbxPlayerTwoName.Name = "txbxPlayerTwoName";
+            this.txbxPlayerTwoName.Size = new System.Drawing.Size(100, 23);
+            this.txbxPlayerTwoName.TabIndex = 6;
             // 
             // lblPlayerTwo
             // 
             this.lblPlayerTwo.AutoSize = true;
-            this.lblPlayerTwo.Location = new System.Drawing.Point(217, 88);
+            this.lblPlayerTwo.Location = new System.Drawing.Point(217, 149);
             this.lblPlayerTwo.Name = "lblPlayerTwo";
             this.lblPlayerTwo.Size = new System.Drawing.Size(101, 15);
             this.lblPlayerTwo.TabIndex = 7;
@@ -142,7 +145,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // tbScoreLimit
             // 
-            this.tbScoreLimit.Location = new System.Drawing.Point(12, 180);
+            this.tbScoreLimit.Location = new System.Drawing.Point(12, 241);
             this.tbScoreLimit.Maximum = 100;
             this.tbScoreLimit.Minimum = 50;
             this.tbScoreLimit.Name = "tbScoreLimit";
@@ -154,27 +157,47 @@ namespace JamesMoonNoahConveryAssgt
             // lblScoreLimit
             // 
             this.lblScoreLimit.AutoSize = true;
-            this.lblScoreLimit.Location = new System.Drawing.Point(12, 159);
+            this.lblScoreLimit.Location = new System.Drawing.Point(12, 220);
             this.lblScoreLimit.Name = "lblScoreLimit";
             this.lblScoreLimit.Size = new System.Drawing.Size(153, 15);
             this.lblScoreLimit.TabIndex = 9;
             this.lblScoreLimit.Text = "Score Limit: First to 50 wins!";
             // 
+            // lblGroan
+            // 
+            this.lblGroan.AutoSize = true;
+            this.lblGroan.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lblGroan.Location = new System.Drawing.Point(95, 9);
+            this.lblGroan.Name = "lblGroan";
+            this.lblGroan.Size = new System.Drawing.Size(154, 50);
+            this.lblGroan.TabIndex = 10;
+            this.lblGroan.Text = "Groan";
+            // 
+            // lblBotName
+            // 
+            this.lblBotName.AutoSize = true;
+            this.lblBotName.Location = new System.Drawing.Point(218, 170);
+            this.lblBotName.Name = "lblBotName";
+            this.lblBotName.Size = new System.Drawing.Size(0, 15);
+            this.lblBotName.TabIndex = 11;
+            // 
             // frmGroan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 369);
+            this.ClientSize = new System.Drawing.Size(333, 369);
+            this.Controls.Add(this.lblGroan);
             this.Controls.Add(this.lblScoreLimit);
             this.Controls.Add(this.tbScoreLimit);
             this.Controls.Add(this.lblPlayerTwo);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txbxPlayerTwoName);
             this.Controls.Add(this.txbx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbNumberOfPlayers);
             this.Controls.Add(this.btnRules);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.lblBotName);
             this.Name = "frmGroan";
             this.Text = "Groan";
             this.gbNumberOfPlayers.ResumeLayout(false);
@@ -195,10 +218,12 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.RadioButton rbOnePlayer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbx;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbxPlayerTwoName;
         private System.Windows.Forms.Label lblPlayerTwo;
         private System.Windows.Forms.TrackBar tbScoreLimit;
         private System.Windows.Forms.Label lblScoreLimit;
+        private System.Windows.Forms.Label lblGroan;
+        private System.Windows.Forms.Label lblBotName;
     }
 }
 

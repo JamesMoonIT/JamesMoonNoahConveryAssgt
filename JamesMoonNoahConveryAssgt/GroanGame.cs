@@ -12,6 +12,12 @@ namespace JamesMoonNoahConveryAssgt
 {
     public partial class frmGroanGame : Form
     {
+        private Graphics graDiceOne;
+        private Graphics graDiceTwo;
+        private Graphics graDiceThree;
+        private Graphics graDiceFour;
+        private Graphics graDiceFive;
+        private Graphics graDiceSix;
         public frmGroanGame()
         {
             InitializeComponent();
