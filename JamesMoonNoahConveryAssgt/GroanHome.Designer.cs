@@ -167,7 +167,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.lblGroan.AutoSize = true;
             this.lblGroan.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblGroan.Location = new System.Drawing.Point(95, 9);
+            this.lblGroan.Location = new System.Drawing.Point(82, 9);
             this.lblGroan.Name = "lblGroan";
             this.lblGroan.Size = new System.Drawing.Size(154, 50);
             this.lblGroan.TabIndex = 10;
