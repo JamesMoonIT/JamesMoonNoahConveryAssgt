@@ -15,6 +15,8 @@ namespace JamesMoonNoahConveryAssgt
         public frmGroan()
         {
             InitializeComponent();
+            lblBotName.Text = "Ultron";
+            lblBotName.Visible = false;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -30,13 +32,20 @@ namespace JamesMoonNoahConveryAssgt
 
         private void rbOnePlayer_CheckedChanged(object sender, EventArgs e)
         {
-            lblPlayerTwo.Visible = false;
+            txbxPlayerTwoName.Visible = false;
+            lblBotName.Visible = true;
             
         }
 
         private void tbScoreLimit_Scroll(object sender, EventArgs e)
         {
             lblScoreLimit.Text = "Score Limit: First to " + tbScoreLimit.Value + " wins!";
+        }
+
+        private void rbTwoPlayers_CheckedChanged(object sender, EventArgs e)
+        {
+            txbxPlayerTwoName.Visible = true;
+            lblBotName.Visible = true;
         }
     }
 }
