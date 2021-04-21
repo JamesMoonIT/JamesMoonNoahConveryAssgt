@@ -22,5 +22,15 @@ namespace JamesMoonNoahConveryAssgt
         {
             InitializeComponent();
         }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
