@@ -12,7 +12,7 @@ namespace JamesMoonNoahConveryAssgt
 {
     public partial class frmGroan : Form
     {
-        private String sP1Name, sP2Name;
+        public String sP1Name, sP2Name;
         private int iScore;
         frmGroanGame GroanGame = new frmGroanGame();
         frmGroanRules GroanRules = new frmGroanRules();

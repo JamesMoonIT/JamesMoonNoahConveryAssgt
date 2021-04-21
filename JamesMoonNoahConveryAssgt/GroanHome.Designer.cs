@@ -228,7 +228,6 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.RadioButton rbTwoPlayers;
         private System.Windows.Forms.RadioButton rbOnePlayer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbxPlayerOneName;
         private System.Windows.Forms.TextBox txbxPlayerTwoName;
         private System.Windows.Forms.Label lblPlayerTwo;
         private System.Windows.Forms.TrackBar tbScoreLimit;
@@ -236,6 +235,7 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.Label lblGroan;
         private System.Windows.Forms.Label lblBotName;
         private System.Windows.Forms.Label lblFeedback;
+        public System.Windows.Forms.TextBox txbxPlayerOneName;
     }
 }
 
