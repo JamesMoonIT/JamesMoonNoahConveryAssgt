@@ -18,9 +18,11 @@ namespace JamesMoonNoahConveryAssgt
         private Graphics graDiceFour;
         private Graphics graDiceFive;
         private Graphics graDiceSix;
+        private CurrentGame myGame;
         public frmGroanGame()
         {
             InitializeComponent();
+            lblPlayer1Name.Text = 
         }
     }
 }
