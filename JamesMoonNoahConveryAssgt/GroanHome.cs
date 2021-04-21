@@ -12,6 +12,11 @@ namespace JamesMoonNoahConveryAssgt
 {
     public partial class frmGroan : Form
     {
+        private String sP1Name, sP2Name;
+        private int iScore;
+        frmGroanGame GroanGame = new frmGroanGame();
+        frmGroanRules GroanRules = new frmGroanRules();
+
         public frmGroan()
         {
             InitializeComponent();
@@ -21,8 +26,23 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            frmGroanGame GroanGame = new frmGroanGame();
-            GroanGame.Show();
+            try
+            {
+                if (rbOnePlayer.Checked)
+                {
+                    sP1Name = txbxPlayerOneName.Text;
+                    sP2Name = lblBotName.Text;
+                }
+                if (rbTwoPlayers.Checked) {
+                    sP1Name = txbxPlayerOneName.Text;
+                    sP2Name = txbxPlayerTwoName.Text;
+                }
+                GroanGame.Show();
+            }
+            catch
+            {
+                lblFeedback.Text = "Please enter a name into all applicable name fields.";
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -40,6 +60,11 @@ namespace JamesMoonNoahConveryAssgt
         private void tbScoreLimit_Scroll(object sender, EventArgs e)
         {
             lblScoreLimit.Text = "Score Limit: First to " + tbScoreLimit.Value + " wins!";
+        }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            GroanRules.Show();
         }
 
         private void rbTwoPlayers_CheckedChanged(object sender, EventArgs e)

@@ -36,13 +36,14 @@ namespace JamesMoonNoahConveryAssgt
             this.rbTwoPlayers = new System.Windows.Forms.RadioButton();
             this.rbOnePlayer = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbx = new System.Windows.Forms.TextBox();
+            this.txbxPlayerOneName = new System.Windows.Forms.TextBox();
             this.txbxPlayerTwoName = new System.Windows.Forms.TextBox();
             this.lblPlayerTwo = new System.Windows.Forms.Label();
             this.tbScoreLimit = new System.Windows.Forms.TrackBar();
             this.lblScoreLimit = new System.Windows.Forms.Label();
             this.lblGroan = new System.Windows.Forms.Label();
             this.lblBotName = new System.Windows.Forms.Label();
+            this.lblFeedback = new System.Windows.Forms.Label();
             this.gbNumberOfPlayers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbScoreLimit)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,7 @@ namespace JamesMoonNoahConveryAssgt
             this.btnRules.TabIndex = 2;
             this.btnRules.Text = "Rules";
             this.btnRules.UseVisualStyleBackColor = true;
+            this.btnRules.Click += new System.EventHandler(this.btnRules_Click);
             // 
             // gbNumberOfPlayers
             // 
@@ -120,12 +122,12 @@ namespace JamesMoonNoahConveryAssgt
             this.label1.TabIndex = 4;
             this.label1.Text = "Player One Name:";
             // 
-            // txbx
+            // txbxPlayerOneName
             // 
-            this.txbx.Location = new System.Drawing.Point(19, 167);
-            this.txbx.Name = "txbx";
-            this.txbx.Size = new System.Drawing.Size(100, 23);
-            this.txbx.TabIndex = 5;
+            this.txbxPlayerOneName.Location = new System.Drawing.Point(19, 167);
+            this.txbxPlayerOneName.Name = "txbxPlayerOneName";
+            this.txbxPlayerOneName.Size = new System.Drawing.Size(100, 23);
+            this.txbxPlayerOneName.TabIndex = 5;
             // 
             // txbxPlayerTwoName
             // 
@@ -181,17 +183,26 @@ namespace JamesMoonNoahConveryAssgt
             this.lblBotName.Size = new System.Drawing.Size(0, 15);
             this.lblBotName.TabIndex = 11;
             // 
+            // lblFeedback
+            // 
+            this.lblFeedback.AutoSize = true;
+            this.lblFeedback.Location = new System.Drawing.Point(44, 342);
+            this.lblFeedback.Name = "lblFeedback";
+            this.lblFeedback.Size = new System.Drawing.Size(0, 15);
+            this.lblFeedback.TabIndex = 12;
+            // 
             // frmGroan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 369);
+            this.Controls.Add(this.lblFeedback);
             this.Controls.Add(this.lblGroan);
             this.Controls.Add(this.lblScoreLimit);
             this.Controls.Add(this.tbScoreLimit);
             this.Controls.Add(this.lblPlayerTwo);
             this.Controls.Add(this.txbxPlayerTwoName);
-            this.Controls.Add(this.txbx);
+            this.Controls.Add(this.txbxPlayerOneName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbNumberOfPlayers);
             this.Controls.Add(this.btnRules);
@@ -217,13 +228,14 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.RadioButton rbTwoPlayers;
         private System.Windows.Forms.RadioButton rbOnePlayer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbx;
+        private System.Windows.Forms.TextBox txbxPlayerOneName;
         private System.Windows.Forms.TextBox txbxPlayerTwoName;
         private System.Windows.Forms.Label lblPlayerTwo;
         private System.Windows.Forms.TrackBar tbScoreLimit;
         private System.Windows.Forms.Label lblScoreLimit;
         private System.Windows.Forms.Label lblGroan;
         private System.Windows.Forms.Label lblBotName;
+        private System.Windows.Forms.Label lblFeedback;
     }
 }
 
