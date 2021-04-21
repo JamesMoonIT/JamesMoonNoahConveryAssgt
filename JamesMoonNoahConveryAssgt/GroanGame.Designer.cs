@@ -45,6 +45,7 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxPlayer2Score = new System.Windows.Forms.TextBox();
             this.picbxDice1 = new System.Windows.Forms.PictureBox();
             this.picbxDice2 = new System.Windows.Forms.PictureBox();
+            this.lblGoal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,7 +101,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.lblTurnIndicator.AutoSize = true;
             this.lblTurnIndicator.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTurnIndicator.Location = new System.Drawing.Point(325, 29);
+            this.lblTurnIndicator.Location = new System.Drawing.Point(325, 18);
             this.lblTurnIndicator.Name = "lblTurnIndicator";
             this.lblTurnIndicator.Size = new System.Drawing.Size(170, 28);
             this.lblTurnIndicator.TabIndex = 5;
@@ -197,11 +198,21 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxDice2.TabIndex = 15;
             this.picbxDice2.TabStop = false;
             // 
+            // lblGoal
+            // 
+            this.lblGoal.AutoSize = true;
+            this.lblGoal.Location = new System.Drawing.Point(377, 69);
+            this.lblGoal.Name = "lblGoal";
+            this.lblGoal.Size = new System.Drawing.Size(37, 15);
+            this.lblGoal.TabIndex = 16;
+            this.lblGoal.Text = "Goal :";
+            // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.lblGoal);
             this.Controls.Add(this.picbxDice2);
             this.Controls.Add(this.picbxDice1);
             this.Controls.Add(this.txtbxPlayer2Score);
@@ -248,5 +259,6 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.TextBox txtbxPlayer2Score;
         private System.Windows.Forms.PictureBox picbxDice1;
         private System.Windows.Forms.PictureBox picbxDice2;
+        private System.Windows.Forms.Label lblGoal;
     }
 }

@@ -22,7 +22,7 @@ namespace JamesMoonNoahConveryAssgt
         public frmGroanGame()
         {
             InitializeComponent();
-            lblPlayer1Name.Text = 
+            //lblPlayer1Name.Text = 
         }
 
         private void btnRules_Click(object sender, EventArgs e)

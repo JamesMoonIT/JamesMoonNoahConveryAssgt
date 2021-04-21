@@ -8,6 +8,6 @@ namespace JamesMoonNoahConveryAssgt
 {
     public class CurrentGame
     {
-
+       
     }
 }
