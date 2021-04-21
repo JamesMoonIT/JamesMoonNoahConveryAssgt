@@ -32,6 +32,15 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxPlayerOneBack = new System.Windows.Forms.PictureBox();
             this.picbxPlayerTwoBack = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPlayer2Name = new System.Windows.Forms.Label();
+            this.lblPlayer1Name = new System.Windows.Forms.Label();
+            this.lblTurnIndicator = new System.Windows.Forms.Label();
+            this.btnRoll = new System.Windows.Forms.Button();
+            this.lblRunningScore = new System.Windows.Forms.Label();
+            this.btnPass = new System.Windows.Forms.Button();
+            this.txtbxRunningScore = new System.Windows.Forms.TextBox();
+            this.btnRules = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,11 +70,104 @@ namespace JamesMoonNoahConveryAssgt
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // lblPlayer2Name
+            // 
+            this.lblPlayer2Name.AutoSize = true;
+            this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer2Name.Location = new System.Drawing.Point(650, 28);
+            this.lblPlayer2Name.Name = "lblPlayer2Name";
+            this.lblPlayer2Name.Size = new System.Drawing.Size(128, 28);
+            this.lblPlayer2Name.TabIndex = 3;
+            this.lblPlayer2Name.Text = "Player2Name";
+            // 
+            // lblPlayer1Name
+            // 
+            this.lblPlayer1Name.AutoSize = true;
+            this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer1Name.Location = new System.Drawing.Point(21, 28);
+            this.lblPlayer1Name.Name = "lblPlayer1Name";
+            this.lblPlayer1Name.Size = new System.Drawing.Size(128, 28);
+            this.lblPlayer1Name.TabIndex = 4;
+            this.lblPlayer1Name.Text = "Player1Name";
+            // 
+            // lblTurnIndicator
+            // 
+            this.lblTurnIndicator.AutoSize = true;
+            this.lblTurnIndicator.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTurnIndicator.Location = new System.Drawing.Point(325, 29);
+            this.lblTurnIndicator.Name = "lblTurnIndicator";
+            this.lblTurnIndicator.Size = new System.Drawing.Size(170, 28);
+            this.lblTurnIndicator.TabIndex = 5;
+            this.lblTurnIndicator.Text = "It is Player 1\'s turn";
+            // 
+            // btnRoll
+            // 
+            this.btnRoll.Location = new System.Drawing.Point(325, 370);
+            this.btnRoll.Name = "btnRoll";
+            this.btnRoll.Size = new System.Drawing.Size(75, 23);
+            this.btnRoll.TabIndex = 6;
+            this.btnRoll.Text = "Roll";
+            this.btnRoll.UseVisualStyleBackColor = true;
+            // 
+            // lblRunningScore
+            // 
+            this.lblRunningScore.AutoSize = true;
+            this.lblRunningScore.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRunningScore.Location = new System.Drawing.Point(325, 109);
+            this.lblRunningScore.Name = "lblRunningScore";
+            this.lblRunningScore.Size = new System.Drawing.Size(139, 28);
+            this.lblRunningScore.TabIndex = 7;
+            this.lblRunningScore.Text = "Running Score";
+            // 
+            // btnPass
+            // 
+            this.btnPass.Location = new System.Drawing.Point(420, 370);
+            this.btnPass.Name = "btnPass";
+            this.btnPass.Size = new System.Drawing.Size(75, 23);
+            this.btnPass.TabIndex = 8;
+            this.btnPass.Text = "Pass";
+            this.btnPass.UseVisualStyleBackColor = true;
+            // 
+            // txtbxRunningScore
+            // 
+            this.txtbxRunningScore.Enabled = false;
+            this.txtbxRunningScore.Location = new System.Drawing.Point(342, 168);
+            this.txtbxRunningScore.Name = "txtbxRunningScore";
+            this.txtbxRunningScore.Size = new System.Drawing.Size(100, 23);
+            this.txtbxRunningScore.TabIndex = 9;
+            // 
+            // btnRules
+            // 
+            this.btnRules.Location = new System.Drawing.Point(325, 415);
+            this.btnRules.Name = "btnRules";
+            this.btnRules.Size = new System.Drawing.Size(75, 23);
+            this.btnRules.TabIndex = 10;
+            this.btnRules.Text = "Rules";
+            this.btnRules.UseVisualStyleBackColor = true;
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.Location = new System.Drawing.Point(420, 415);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(75, 23);
+            this.btnQuit.TabIndex = 11;
+            this.btnQuit.Text = "Quit";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.btnQuit);
+            this.Controls.Add(this.btnRules);
+            this.Controls.Add(this.txtbxRunningScore);
+            this.Controls.Add(this.btnPass);
+            this.Controls.Add(this.lblRunningScore);
+            this.Controls.Add(this.btnRoll);
+            this.Controls.Add(this.lblTurnIndicator);
+            this.Controls.Add(this.lblPlayer1Name);
+            this.Controls.Add(this.lblPlayer2Name);
             this.Controls.Add(this.picbxPlayerTwoBack);
             this.Controls.Add(this.picbxPlayerOneBack);
             this.Controls.Add(this.pictureBox1);
@@ -75,6 +177,7 @@ namespace JamesMoonNoahConveryAssgt
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,5 +186,14 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.PictureBox picbxPlayerOneBack;
         private System.Windows.Forms.PictureBox picbxPlayerTwoBack;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblPlayer2Name;
+        private System.Windows.Forms.Label lblPlayer1Name;
+        private System.Windows.Forms.Label lblTurnIndicator;
+        private System.Windows.Forms.Button btnRoll;
+        private System.Windows.Forms.Label lblRunningScore;
+        private System.Windows.Forms.Button btnPass;
+        private System.Windows.Forms.TextBox txtbxRunningScore;
+        private System.Windows.Forms.Button btnRules;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
