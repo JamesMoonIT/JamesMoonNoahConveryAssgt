@@ -18,11 +18,13 @@ namespace JamesMoonNoahConveryAssgt
         private Graphics graDiceFour;
         private Graphics graDiceFive;
         private Graphics graDiceSix;
-        private CurrentGame myGame;
+        private frmGroan groanHome;
         public frmGroanGame()
         {
             InitializeComponent();
-            lblPlayer1Name.Text = 
+            lblPlayer1Name.Text = groanHome.sP1Name;
+            lblPlayer2Name.Text = groanHome.sP2Name;
+
         }
 
         private void btnRules_Click(object sender, EventArgs e)
