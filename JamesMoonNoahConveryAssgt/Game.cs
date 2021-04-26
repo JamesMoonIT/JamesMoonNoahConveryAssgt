@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JamesMoonNoahConveryAssgt
 {
-    class Game
+    public class Game
     {
         private Player[] numOfPlayers = new Player[2];
         private Dice diceStats;
