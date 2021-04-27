@@ -4,9 +4,10 @@ Members present: James and Noah
 	- GroanHome
 	- GroanRules
 	- GroanGame
-- Created textboxes, labels and trackbar on GroanHome
-- Added navigation to buttons btnStart, btnRules and btnClose
-- Added rules to form GroanRules
+-Updates
+	- Created textboxes, labels and trackbar on GroanHome
+	- Added navigation to buttons btnStart, btnRules and btnClose
+	- Added rules to form GroanRules
 Comments: James introduced Noah to Git and set up a repository of the game files. We established a basic design
 			of what GroanHome and GroanRules would work like. We also established workload we were going to work with
 			and how to approach each step of the assignment.
@@ -14,4 +15,44 @@ Comments: James introduced Noah to Git and set up a repository of the game files
 
 21/04/2021
 Members present: James and Noah
-(Next update)
+- Created Classes
+	- Dice.cs
+	- Game.cs
+	- Player.cs
+- Edited Forms
+	- GroanGame
+	- GroanRules
+- Updates:
+	- We created Game and Session classes to keep track of active game data such as player total wins, current player score,
+		as well as knowing what a player rolled and how its results are affected. We also used the class People to store
+		the players name and score for easier referability in Session and GroanGame.
+	- James reused some code from his last INFT2012 Assignment in 2020. This included the basic functionality and classes
+		of Sessions, Game and Dice. Player is mostly untouched as its variables are no different to 2020 INFT2012 Assignment 2.
+	- James added psuedo code to Game and Dice, and coded Player to store player name and score, and created getters and setters.
+		The psuedo code was a series of methods that would be needed later in the assessment.
+	- Noah modified the GroanGame and GroanRules style and behind code for navigation and readability for general player accessibility.
+Comments: [IMPORTANT NOTE] James's repo from INFT2012 2020 assignment is public due to his teammate graduating and needing it for his programming
+			profile. An effort to mask likeliness is applied to this assignemnt to show I am still familiar with how to code an 
+			assignment such as this, and I can work around different assignemnt specifications. The coding style is similar
+			as it is simply how I structure my code in all assignments other than INFT2012. The repo can be found
+			here: https://github.com/KarlKFoley/Inft2012-SixOfOne
+
+
+27/04/2021
+Members present: James & Noah
+- Edit Forms
+	- GroanGame
+	- GroanRules
+- Edited Classes
+	- Dice.cs
+	- Game.cs
+	- Session.cs
+- Updates:
+	- James edited the Dice, Game and Session so they work together with each other in storing and retrieving player and game data.
+	- James connected the Session to GroanGame and GroanHome so data is stored when btnStart is clicked.
+	- Noah made up new designs for GroanGame and added object layout to the form including picture boxes, labels, textboxes and 
+		added navigation inside GroanGame.
+Comments: The plan today was to add functionality to Sessions and Game, and link them up to GroanGame and GroanHome. As the majority
+			of work was evaluating and improving old code, Noah  couldn't do alot coding wise until we had something working. The
+			plan for next week is getting the graphics and code behind for them working properly so we can actually start working
+			on the visual representation than just the code.
