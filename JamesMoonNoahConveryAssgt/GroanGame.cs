@@ -20,24 +20,31 @@ namespace JamesMoonNoahConveryAssgt
         private Graphics graDiceSix;
         //frmGroan groanHome = new frmGroan();
         //frmGroanRules groanRules = new frmGroanRules();
-        
+
 
         public frmGroanGame()
         {
             InitializeComponent();
+            
             //lblPlayer1Name.Text = groanHome.sP1Name;
             //lblPlayer2Name.Text = groanHome.sP2Name;
 
         }
-
+        
         private void btnRules_Click(object sender, EventArgs e)
         {
-            //groanRules.Show();
+            GroanRules GroanRules = new GroanRules();
+
+            GroanRules.Show();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            frmGroanHome GroanHome = new frmGroanHome();
+
             this.Close();
+            GroanHome.Show();
+            
         }
     }
 }

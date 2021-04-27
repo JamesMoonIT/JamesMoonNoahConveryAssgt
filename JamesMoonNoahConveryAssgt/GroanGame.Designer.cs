@@ -46,15 +46,18 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxDice1 = new System.Windows.Forms.PictureBox();
             this.picbxDice2 = new System.Windows.Forms.PictureBox();
             this.lblGoal = new System.Windows.Forms.Label();
+            this.picbxBackground = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // picbxPlayerOneBack
             // 
+            this.picbxPlayerOneBack.BackColor = System.Drawing.Color.Orange;
             this.picbxPlayerOneBack.Location = new System.Drawing.Point(0, 0);
             this.picbxPlayerOneBack.Name = "picbxPlayerOneBack";
             this.picbxPlayerOneBack.Size = new System.Drawing.Size(170, 462);
@@ -63,6 +66,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // picbxPlayerTwoBack
             // 
+            this.picbxPlayerTwoBack.BackColor = System.Drawing.Color.Orange;
             this.picbxPlayerTwoBack.Location = new System.Drawing.Point(630, 0);
             this.picbxPlayerTwoBack.Name = "picbxPlayerTwoBack";
             this.picbxPlayerTwoBack.Size = new System.Drawing.Size(170, 462);
@@ -80,7 +84,9 @@ namespace JamesMoonNoahConveryAssgt
             // lblPlayer2Name
             // 
             this.lblPlayer2Name.AutoSize = true;
+            this.lblPlayer2Name.BackColor = System.Drawing.Color.Orange;
             this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer2Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer2Name.Location = new System.Drawing.Point(650, 28);
             this.lblPlayer2Name.Name = "lblPlayer2Name";
             this.lblPlayer2Name.Size = new System.Drawing.Size(128, 28);
@@ -90,7 +96,9 @@ namespace JamesMoonNoahConveryAssgt
             // lblPlayer1Name
             // 
             this.lblPlayer1Name.AutoSize = true;
+            this.lblPlayer1Name.BackColor = System.Drawing.Color.Orange;
             this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer1Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer1Name.Location = new System.Drawing.Point(21, 28);
             this.lblPlayer1Name.Name = "lblPlayer1Name";
             this.lblPlayer1Name.Size = new System.Drawing.Size(128, 28);
@@ -207,6 +215,15 @@ namespace JamesMoonNoahConveryAssgt
             this.lblGoal.TabIndex = 16;
             this.lblGoal.Text = "Goal :";
             // 
+            // picbxBackground
+            // 
+            this.picbxBackground.BackColor = System.Drawing.Color.RoyalBlue;
+            this.picbxBackground.Location = new System.Drawing.Point(166, 93);
+            this.picbxBackground.Name = "picbxBackground";
+            this.picbxBackground.Size = new System.Drawing.Size(466, 369);
+            this.picbxBackground.TabIndex = 17;
+            this.picbxBackground.TabStop = false;
+            // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -229,6 +246,7 @@ namespace JamesMoonNoahConveryAssgt
             this.Controls.Add(this.picbxPlayerTwoBack);
             this.Controls.Add(this.picbxPlayerOneBack);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picbxBackground);
             this.Name = "frmGroanGame";
             this.Text = "GroanGame";
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).EndInit();
@@ -236,6 +254,7 @@ namespace JamesMoonNoahConveryAssgt
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +279,6 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.PictureBox picbxDice1;
         private System.Windows.Forms.PictureBox picbxDice2;
         private System.Windows.Forms.Label lblGoal;
+        private System.Windows.Forms.PictureBox picbxBackground;
     }
 }

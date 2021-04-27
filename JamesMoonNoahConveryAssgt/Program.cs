@@ -17,7 +17,7 @@ namespace JamesMoonNoahConveryAssgt
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGroan());
+            Application.Run(new frmGroanHome());
         }
     }
 }

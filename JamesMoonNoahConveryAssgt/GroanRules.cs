@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace JamesMoonNoahConveryAssgt
 {
-    public partial class frmGroanRules : Form
+    public partial class GroanRules : Form
     {
-        public frmGroanRules()
+        public GroanRules()
         {
             InitializeComponent();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

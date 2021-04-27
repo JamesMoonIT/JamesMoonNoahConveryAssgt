@@ -1,7 +1,7 @@
 ﻿
 namespace JamesMoonNoahConveryAssgt
 {
-    partial class frmGroan
+    partial class frmGroanHome
     {
         /// <summary>
         ///  Required designer variable.
@@ -191,7 +191,7 @@ namespace JamesMoonNoahConveryAssgt
             this.lblFeedback.Size = new System.Drawing.Size(0, 15);
             this.lblFeedback.TabIndex = 12;
             // 
-            // frmGroan
+            // frmGroanHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@ namespace JamesMoonNoahConveryAssgt
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblBotName);
-            this.Name = "frmGroan";
+            this.Name = "frmGroanHome";
             this.Text = "Groan";
             this.gbNumberOfPlayers.ResumeLayout(false);
             this.gbNumberOfPlayers.PerformLayout();
