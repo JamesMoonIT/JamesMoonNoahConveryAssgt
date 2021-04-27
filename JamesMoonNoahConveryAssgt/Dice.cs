@@ -20,37 +20,37 @@ namespace JamesMoonNoahConveryAssgt
             intFaceSix = 0;
         }
 
-        public int getOne()
+        public int GetOne()
         {
             return intFaceOne;
         }
 
-        public int getTwo()
+        public int GetTwo()
         {
             return intFaceTwo;
         }
 
-        public int getThree()
+        public int GetThree()
         {
             return intFaceThree;
         }
 
-        public int getFour()
+        public int GetFour()
         {
             return intFaceFour;
         }
 
-        public int getFive()
+        public int GetFive()
         {
             return intFaceFive;
         }
 
-        public int getSix()
+        public int GetSix()
         {
             return intFaceSix;
         }
 
-        public void increse(int roll)
+        public void Increase(int roll)
         {
             if (roll == 1)
             {
