@@ -18,6 +18,7 @@ namespace JamesMoonNoahConveryAssgt
         public frmGroanHome()
         {
             InitializeComponent();
+            rbOnePlayer.Checked = true;
             lblBotName.Text = "Ultron";
             lblBotName.Visible = false;
         }
