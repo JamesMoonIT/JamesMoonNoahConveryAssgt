@@ -14,6 +14,7 @@ namespace JamesMoonNoahConveryAssgt
     {
         public String sP1Name, sP2Name;
         private int iScore;
+        private Session newSession;
 
         public frmGroanHome()
         {
@@ -25,27 +26,36 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            frmGroanGame GroanGame = new frmGroanGame();
+            bool enableAI = false;
+            if (rbOnePlayer.Checked)
+            {
+                sP1Name = txbxPlayerOneName.Text;
+                if (sP1Name == "")
+                {
+                    sP1Name = "Player One";
+                }
+                sP2Name = lblBotName.Text;
+                enableAI = true;
+            }
+            if (rbTwoPlayers.Checked)
+            {
+                sP1Name = txbxPlayerOneName.Text;
+                if (sP1Name == "")
+                {
+                    sP1Name = "Player One";
+                }
+                sP2Name = txbxPlayerTwoName.Text;
+                if (sP2Name == "")
+                {
+                    sP2Name = "Player Two";
+                }
+            }
+            iScore = Convert.ToInt32(tbScoreLimit.Value);
+            newSession = new Session(sP1Name, sP2Name, iScore, enableAI);
+            frmGroanGame GroanGame = new frmGroanGame(newSession);
+            GroanGame.Show();
+            Hide();
 
-            try
-            {
-                if (rbOnePlayer.Checked)
-                {
-                    sP1Name = txbxPlayerOneName.Text;
-                    sP2Name = lblBotName.Text;                    
-                }
-                if (rbTwoPlayers.Checked)
-                {
-                    sP1Name = txbxPlayerOneName.Text;
-                    sP2Name = txbxPlayerTwoName.Text;
-                }
-                GroanGame.Show();
-                Hide();
-            }
-            catch
-            {
-                lblFeedback.Text = "Please enter a name into all applicable name fields.";
-            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -123,6 +123,7 @@ namespace JamesMoonNoahConveryAssgt
             this.btnRoll.TabIndex = 6;
             this.btnRoll.Text = "Roll";
             this.btnRoll.UseVisualStyleBackColor = true;
+            this.btnRoll.Click += new System.EventHandler(this.btnRoll_Click);
             // 
             // lblRunningScore
             // 
@@ -194,7 +195,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.picbxDice1.Location = new System.Drawing.Point(206, 213);
             this.picbxDice1.Name = "picbxDice1";
-            this.picbxDice1.Size = new System.Drawing.Size(131, 131);
+            this.picbxDice1.Size = new System.Drawing.Size(133, 133);
             this.picbxDice1.TabIndex = 14;
             this.picbxDice1.TabStop = false;
             // 
@@ -202,7 +203,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.picbxDice2.Location = new System.Drawing.Point(469, 213);
             this.picbxDice2.Name = "picbxDice2";
-            this.picbxDice2.Size = new System.Drawing.Size(131, 131);
+            this.picbxDice2.Size = new System.Drawing.Size(133, 133);
             this.picbxDice2.TabIndex = 15;
             this.picbxDice2.TabStop = false;
             // 
