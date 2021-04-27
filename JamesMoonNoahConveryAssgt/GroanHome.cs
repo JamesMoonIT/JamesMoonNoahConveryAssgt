@@ -31,7 +31,7 @@ namespace JamesMoonNoahConveryAssgt
                 if (rbOnePlayer.Checked)
                 {
                     sP1Name = txbxPlayerOneName.Text;
-                    sP2Name = lblBotName.Text;
+                    sP2Name = lblBotName.Text;                    
                 }
                 if (rbTwoPlayers.Checked)
                 {
