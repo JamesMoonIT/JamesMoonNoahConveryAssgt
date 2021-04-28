@@ -35,6 +35,14 @@ namespace JamesMoonNoahConveryAssgt
             lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
+            if (currentSession.GetCurrentGame().WhosTurn() == 0)
+            {
+                picbxTurnIndicator.BackColor = Color.Red;
+            }
+            else
+            {
+                picbxTurnIndicator.BackColor = Color.Blue;
+            }
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
         }
 
@@ -52,6 +60,21 @@ namespace JamesMoonNoahConveryAssgt
             this.Close();
             GroanHome.Show();
             
+        }
+
+        private void btnPass_Click(object sender, EventArgs e)
+        {
+            currentSession.GetCurrentGame().SwitchPlayers();
+            if(currentSession.GetCurrentGame().WhosTurn() == 0)
+            {
+                picbxTurnIndicator.BackColor = Color.Red;
+                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            }
+            if(currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                picbxTurnIndicator.BackColor = Color.Green;
+                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            }
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -82,7 +105,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void ClearDice()
         {
-            array
+            //array
         }
 
         private void CreateDiceFaceOne(Graphics graDiceNumber)
