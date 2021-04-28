@@ -12,12 +12,6 @@ namespace JamesMoonNoahConveryAssgt
 {
     public partial class frmGroanGame : Form
     {
-        private Graphics graDiceOne;
-        private Graphics graDiceTwo;
-        private Graphics graDiceThree;
-        private Graphics graDiceFour;
-        private Graphics graDiceFive;
-        private Graphics graDiceSix;
         private Graphics firstDice, secondDice;
         private PictureBox firstDiceBox, secondDiceBox;
         private Random rand;
@@ -29,6 +23,8 @@ namespace JamesMoonNoahConveryAssgt
         public frmGroanGame(Session currentGame)
         {
             InitializeComponent();
+            firstDice = picbxDice1.CreateGraphics();
+            secondDice = picbxDice2.CreateGraphics();
             rand = new Random();
             currentSession = currentGame;
             lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
@@ -36,6 +32,7 @@ namespace JamesMoonNoahConveryAssgt
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
+            Application.DoEvents();
         }
 
         private void btnRules_Click(object sender, EventArgs e)
@@ -51,7 +48,7 @@ namespace JamesMoonNoahConveryAssgt
 
             this.Close();
             GroanHome.Show();
-            
+
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -67,73 +64,148 @@ namespace JamesMoonNoahConveryAssgt
 
         private void AITurn()
         {
+            // Add more
+            System.Threading.Thread.Sleep(1000);
             DiceRoll();
+            btnRoll.Visible = true;
         }
 
         private void DiceRoll()
         {
             int[] intScore = new int[1];
-            // CLearDice();
-            for (int i = 0; i < 5; i++)
-            {
+            ClearDice();
+            int result1 = rand.Next(1, 7);
+            int result2 = rand.Next(1, 7);
+            DisplayDice(result1);
+            DisplayDice(result2);
+        }
 
+        private void DisplayDice(int diceNum)
+        {
+            if (diceNum == 1)
+            {
+                CreateDiceFaceOne(diceNum);
             }
         }
 
         private void ClearDice()
         {
-            array
+            firstDice.Clear(Color.White);
+            secondDice.Clear(Color.White);
         }
 
-        private void CreateDiceFaceOne(Graphics graDiceNumber)
+        private void CreateDiceFaceOne(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 57, 57, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 57, 57, 19, 19);
+            }
         }
 
-        private void CreateDiceFaceTwo(Graphics graDiceNumber)
+        private void CreateDiceFaceTwo(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 19, 19, 19, 19);
+                firstDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 19, 19, 19, 19);
+                secondDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
         }
 
-        private void CreateDiceFaceThree(Graphics graDiceNumber)
+        private void CreateDiceFaceThree(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 19, 19, 19, 19);
+                firstDice.FillEllipse(dots, 57, 57, 19, 19);
+                firstDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 19, 19, 19, 19);
+                secondDice.FillEllipse(dots, 57, 57, 19, 19);
+                secondDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
         }
 
-        private void CreateDiceFaceFour(Graphics graDiceNumber)
+        private void CreateDiceFaceFour(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 19, 19, 19, 19);
+                firstDice.FillEllipse(dots, 19, 95, 19, 19);
+                firstDice.FillEllipse(dots, 95, 19, 19, 19);
+                firstDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 19, 19, 19, 19);
+                secondDice.FillEllipse(dots, 19, 95, 19, 19);
+                secondDice.FillEllipse(dots, 95, 19, 19, 19);
+                secondDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
         }
 
-        private void CreateDiceFaceFive(Graphics graDiceNumber)
+        private void CreateDiceFaceFive(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
-            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 19, 19, 19, 19);
+                firstDice.FillEllipse(dots, 19, 95, 19, 19);
+                firstDice.FillEllipse(dots, 57, 57, 19, 19);
+                firstDice.FillEllipse(dots, 95, 19, 19, 19);
+                firstDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 19, 19, 19, 19);
+                secondDice.FillEllipse(dots, 19, 95, 19, 19);
+                secondDice.FillEllipse(dots, 57, 57, 19, 19);
+                secondDice.FillEllipse(dots, 95, 19, 19, 19);
+                secondDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
         }
 
-        private void CreateDiceFaceSix(Graphics graDiceNumber)
+        private void CreateDiceFaceSix(int diceNumber)
         {
-            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
-            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 19, 57, 19, 19);
-            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 57, 19, 19);
-            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+            if (diceNumber == 1)
+            {
+                firstDice.FillRectangle(background, 0, 0, 133, 133);
+                firstDice.FillEllipse(dots, 19, 19, 19, 19);
+                firstDice.FillEllipse(dots, 19, 57, 19, 19);
+                firstDice.FillEllipse(dots, 19, 95, 19, 19);
+                firstDice.FillEllipse(dots, 95, 19, 19, 19);
+                firstDice.FillEllipse(dots, 95, 57, 19, 19);
+                firstDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
+            else
+            {
+                secondDice.FillRectangle(background, 0, 0, 133, 133);
+                secondDice.FillEllipse(dots, 19, 19, 19, 19);
+                secondDice.FillEllipse(dots, 19, 57, 19, 19);
+                secondDice.FillEllipse(dots, 19, 95, 19, 19);
+                secondDice.FillEllipse(dots, 95, 19, 19, 19);
+                secondDice.FillEllipse(dots, 95, 57, 19, 19);
+                secondDice.FillEllipse(dots, 95, 95, 19, 19);
+            }
         }
     }
 }
