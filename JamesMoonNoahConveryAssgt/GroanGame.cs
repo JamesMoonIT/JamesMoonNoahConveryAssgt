@@ -79,6 +79,7 @@ namespace JamesMoonNoahConveryAssgt
             btnRoll.Visible = false;
             btnRoll.Refresh();
             DiceRoll();
+            btnRoll.Visible = true;
         }
 
         private void AITurn()
@@ -92,19 +93,45 @@ namespace JamesMoonNoahConveryAssgt
 
         private void DiceRoll()
         {
-            int[] intScore = new int[1];
             ClearDice();
-            int result1 = rand.Next(1, 7);
-            int result2 = rand.Next(1, 7);
-            DisplayDice(result1);
-            DisplayDice(result2);
+            int roll1 = 0, roll2 = 0, result1, result2, dice1, dice2;
+            for (int iteration = 0; iteration < 10; iteration++)
+            {
+                roll1 = rand.Next(1, 7);
+                roll2 = rand.Next(1, 7);
+                DisplayDice(roll1, 1);
+                DisplayDice(roll2, 2);
+                System.Threading.Thread.Sleep(100);
+            }
+            result1 = roll1;
+            result2 = roll2;
         }
 
-        private void DisplayDice(int diceNum)
+        private void DisplayDice(int diceNum, int dice)
         {
             if (diceNum == 1)
             {
-                CreateDiceFaceOne(diceNum);
+                CreateDiceFaceOne(dice);
+            }
+            else if (diceNum == 2)
+            {
+                CreateDiceFaceTwo(dice);
+            }
+            else if (diceNum == 3)
+            {
+                CreateDiceFaceThree(dice);
+            }
+            else if (diceNum == 4)
+            {
+                CreateDiceFaceFour(dice);
+            }
+            else if (diceNum == 5)
+            {
+                CreateDiceFaceFive(dice);
+            }
+            else
+            {
+                CreateDiceFaceSix(dice);
             }
         }
 
