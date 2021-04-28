@@ -85,7 +85,6 @@ namespace JamesMoonNoahConveryAssgt
         private void AITurn()
         {
             // Add more
-            System.Threading.Thread.Sleep(1000);
             DiceRoll();
             btnRoll.Visible = true;
         }
@@ -104,6 +103,26 @@ namespace JamesMoonNoahConveryAssgt
             }
             result1 = roll1;
             result2 = roll2;
+            CheckDice(result1, result2);
+        }
+
+        private void CheckDice(int result1, int result2)
+        {
+            if (result1 == 1 || result2 == 1)
+            {
+                // if player rolls one 1
+                txtbxRunningScore.Text = "Turn Passed";
+            }
+            else if (result1 == 1 && result2 == 1)
+            {
+                // if player rolls two 1's
+                txtbxRunningScore.Text = "Snake Eyes!";
+            }
+            else
+            {
+                // if player rolls zero 1's
+                txtbxRunningScore.Text = Convert.ToString(result1 + result2);
+            }
         }
 
         private void DisplayDice(int diceNum, int dice)
