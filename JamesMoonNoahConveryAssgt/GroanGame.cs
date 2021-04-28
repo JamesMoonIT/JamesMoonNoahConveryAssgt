@@ -87,6 +87,7 @@ namespace JamesMoonNoahConveryAssgt
             // Add more
             DiceRoll();
             btnRoll.Visible = true;
+            
         }
 
         private void DiceRoll()
