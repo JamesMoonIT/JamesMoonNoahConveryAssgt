@@ -18,19 +18,25 @@ namespace JamesMoonNoahConveryAssgt
         private Graphics graDiceFour;
         private Graphics graDiceFive;
         private Graphics graDiceSix;
-        //frmGroan groanHome = new frmGroan();
-        //frmGroanRules groanRules = new frmGroanRules();
+        private Graphics firstDice, secondDice;
+        private PictureBox firstDiceBox, secondDiceBox;
+        private Random rand;
+        private Session currentSession;
+        private SolidBrush background = new SolidBrush(Color.White);
+        private SolidBrush dots = new SolidBrush(Color.Black);
 
 
-        public frmGroanGame()
+        public frmGroanGame(Session currentGame)
         {
             InitializeComponent();
-            
-            //lblPlayer1Name.Text = groanHome.sP1Name;
-            //lblPlayer2Name.Text = groanHome.sP2Name;
-
+            rand = new Random();
+            currentSession = currentGame;
+            lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
+            lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
         }
-        
+
         private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules GroanRules = new GroanRules();
@@ -45,6 +51,88 @@ namespace JamesMoonNoahConveryAssgt
             this.Close();
             GroanHome.Show();
             
+        }
+
+        private void btnRoll_Click(object sender, EventArgs e)
+        {
+            btnRoll.Visible = false;
+            btnRoll.Refresh();
+            DiceRoll();
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                // AiTurn()
+            }
+        }
+
+        private void AITurn()
+        {
+            DiceRoll();
+        }
+
+        private void DiceRoll()
+        {
+            int[] intScore = new int[1];
+            // CLearDice();
+            for (int i = 0; i < 5; i++)
+            {
+
+            }
+        }
+
+        private void ClearDice()
+        {
+            
+        }
+
+        private void CreateDiceFaceOne(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
+        }
+
+        private void CreateDiceFaceTwo(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+        }
+
+        private void CreateDiceFaceThree(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+        }
+
+        private void CreateDiceFaceFour(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+        }
+
+        private void CreateDiceFaceFive(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
+            graDiceNumber.FillEllipse(dots, 57, 57, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
+        }
+
+        private void CreateDiceFaceSix(Graphics graDiceNumber)
+        {
+            graDiceNumber.FillRectangle(background, 0, 0, 133, 133);
+            graDiceNumber.FillEllipse(dots, 19, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 19, 57, 19, 19);
+            graDiceNumber.FillEllipse(dots, 19, 95, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 19, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 57, 19, 19);
+            graDiceNumber.FillEllipse(dots, 95, 95, 19, 19);
         }
     }
 }

@@ -33,6 +33,11 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
+        //public string RunningScore()
+        //{
+
+        //}
+
         public string CountScore(int[] intResult)
         {
             int result = 0;
