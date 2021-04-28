@@ -34,6 +34,7 @@ namespace JamesMoonNoahConveryAssgt
             lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
             lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
         }
 
@@ -60,7 +61,7 @@ namespace JamesMoonNoahConveryAssgt
             DiceRoll();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
-                // AiTurn()
+                AITurn();
             }
         }
 
@@ -81,7 +82,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void ClearDice()
         {
-            
+            array
         }
 
         private void CreateDiceFaceOne(Graphics graDiceNumber)

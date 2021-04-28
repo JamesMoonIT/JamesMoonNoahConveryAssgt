@@ -13,7 +13,7 @@ Comments: James introduced Noah to Git and set up a repository of the game files
 			and how to approach each step of the assignment.
 
 
-21/04/2021
+26/04/2021
 Members present: James and Noah
 - Created Classes
 	- Dice.cs
@@ -38,6 +38,9 @@ Comments: [IMPORTANT NOTE] James's repo from INFT2012 2020 assignment is public 
 			here: https://github.com/KarlKFoley/Inft2012-SixOfOne
 
 
+26/04/2021
+Members present: James & Noah
+
 27/04/2021
 Members present: James & Noah
 - Edit Forms
@@ -52,6 +55,7 @@ Members present: James & Noah
 	- James connected the Session to GroanGame and GroanHome so data is stored when btnStart is clicked.
 	- Noah made up new designs for GroanGame and added object layout to the form including picture boxes, labels, textboxes and 
 		added navigation inside GroanGame.
+	-Noah
 Comments: The plan today was to add functionality to Sessions and Game, and link them up to GroanGame and GroanHome. As the majority
 			of work was evaluating and improving old code, Noah  couldn't do alot coding wise until we had something working. The
 			plan for next week is getting the graphics and code behind for them working properly so we can actually start working

@@ -104,9 +104,11 @@ namespace JamesMoonNoahConveryAssgt
             this.lblPlayer1Name.Size = new System.Drawing.Size(128, 28);
             this.lblPlayer1Name.TabIndex = 4;
             this.lblPlayer1Name.Text = "Player1Name";
+            this.lblPlayer1Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTurnIndicator
             // 
+            this.lblTurnIndicator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTurnIndicator.AutoSize = true;
             this.lblTurnIndicator.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTurnIndicator.Location = new System.Drawing.Point(325, 18);
@@ -114,6 +116,7 @@ namespace JamesMoonNoahConveryAssgt
             this.lblTurnIndicator.Size = new System.Drawing.Size(170, 28);
             this.lblTurnIndicator.TabIndex = 5;
             this.lblTurnIndicator.Text = "It is Player 1\'s turn";
+            this.lblTurnIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRoll
             // 
@@ -215,6 +218,7 @@ namespace JamesMoonNoahConveryAssgt
             this.lblGoal.Size = new System.Drawing.Size(37, 15);
             this.lblGoal.TabIndex = 16;
             this.lblGoal.Text = "Goal :";
+            this.lblGoal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picbxBackground
             // 
