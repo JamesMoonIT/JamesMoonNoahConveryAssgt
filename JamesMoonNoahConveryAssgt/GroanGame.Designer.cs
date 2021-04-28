@@ -31,7 +31,7 @@ namespace JamesMoonNoahConveryAssgt
         {
             this.picbxPlayerOneBack = new System.Windows.Forms.PictureBox();
             this.picbxPlayerTwoBack = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picbxTurnIndicator = new System.Windows.Forms.PictureBox();
             this.lblPlayer2Name = new System.Windows.Forms.Label();
             this.lblPlayer1Name = new System.Windows.Forms.Label();
             this.lblTurnIndicator = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxBackground = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxTurnIndicator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxBackground)).BeginInit();
@@ -73,13 +73,13 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxPlayerTwoBack.TabIndex = 1;
             this.picbxPlayerTwoBack.TabStop = false;
             // 
-            // pictureBox1
+            // picbxTurnIndicator
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(166, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(466, 93);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picbxTurnIndicator.Location = new System.Drawing.Point(166, 0);
+            this.picbxTurnIndicator.Name = "picbxTurnIndicator";
+            this.picbxTurnIndicator.Size = new System.Drawing.Size(466, 93);
+            this.picbxTurnIndicator.TabIndex = 2;
+            this.picbxTurnIndicator.TabStop = false;
             // 
             // lblPlayer2Name
             // 
@@ -245,13 +245,13 @@ namespace JamesMoonNoahConveryAssgt
             this.Controls.Add(this.lblPlayer2Name);
             this.Controls.Add(this.picbxPlayerTwoBack);
             this.Controls.Add(this.picbxPlayerOneBack);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picbxTurnIndicator);
             this.Controls.Add(this.picbxBackground);
             this.Name = "frmGroanGame";
             this.Text = "GroanGame";
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbxTurnIndicator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxDice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxBackground)).EndInit();
@@ -264,7 +264,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private System.Windows.Forms.PictureBox picbxPlayerOneBack;
         private System.Windows.Forms.PictureBox picbxPlayerTwoBack;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picbxTurnIndicator;
         private System.Windows.Forms.Label lblPlayer2Name;
         private System.Windows.Forms.Label lblPlayer1Name;
         private System.Windows.Forms.Label lblTurnIndicator;

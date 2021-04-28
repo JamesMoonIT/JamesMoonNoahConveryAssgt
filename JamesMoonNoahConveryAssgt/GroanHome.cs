@@ -19,8 +19,8 @@ namespace JamesMoonNoahConveryAssgt
         {
             InitializeComponent();
             rbOnePlayer.Checked = true;
-            lblBotName.Text = "Ultron";
-            lblBotName.Visible = false;
+            lblBotName.Text = "Kitt";
+            lblBotName.Visible = true;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
