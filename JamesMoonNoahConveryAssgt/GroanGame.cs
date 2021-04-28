@@ -79,10 +79,6 @@ namespace JamesMoonNoahConveryAssgt
             btnRoll.Visible = false;
             btnRoll.Refresh();
             DiceRoll();
-            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
-            {
-                AITurn();
-            }
         }
 
         private void AITurn()
@@ -91,6 +87,7 @@ namespace JamesMoonNoahConveryAssgt
             System.Threading.Thread.Sleep(1000);
             DiceRoll();
             btnRoll.Visible = true;
+            
         }
 
         private void DiceRoll()

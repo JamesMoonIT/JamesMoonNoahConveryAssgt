@@ -16,7 +16,7 @@ namespace JamesMoonNoahConveryAssgt
 
         public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
-            int intWhosTurn = rand.Next(0, 1);
+            int intWhosTurn = rand.Next(0, 2);
             intGoal = finalGoal;
             boolEnd = false;
             diceStats = new Dice();
