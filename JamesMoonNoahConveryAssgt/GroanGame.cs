@@ -94,7 +94,7 @@ namespace JamesMoonNoahConveryAssgt
         private void DiceRoll()
         {
             ClearDice();
-            int roll1 = 0, roll2 = 0, result1, result2, dice1, dice2;
+            int roll1 = 0, roll2 = 0, result1, result2, dice1, dice2, total;
             for (int iteration = 0; iteration < 10; iteration++)
             {
                 roll1 = rand.Next(1, 7);
