@@ -60,3 +60,16 @@ Comments: The plan today was to add functionality to Sessions and Game, and link
 			of work was evaluating and improving old code, Noah  couldn't do alot coding wise until we had something working. The
 			plan for next week is getting the graphics and code behind for them working properly so we can actually start working
 			on the visual representation than just the code.
+
+
+28/04/2021
+Members present: James & Noah
+- Edit Forms 
+	-GroanGame
+- Edited Classes
+	-Session.cs
+	-GroanGame.cs
+	-Game.cs
+- Updates:
+	-Noah edited the GroanGame.cs so that a player is randomly selected to go first.
+	-Also edited the pass button to change the text and color of the turn indicator.
