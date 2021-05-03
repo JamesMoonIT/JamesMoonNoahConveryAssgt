@@ -10,7 +10,7 @@ namespace JamesMoonNoahConveryAssgt
     {
         private Player[] numOfPlayers = new Player[2];
         private Dice diceStats;
-        private int intGoal, intTurn;
+        private int intGoal, intTurn, intRunning;
         private bool boolEnd, boolCurrentPlayerWins;
         private Random rand = new Random();
 
@@ -33,10 +33,10 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        //public string RunningScore()
-        //{
-
-        //}
+        public int GetRunningScore()
+        {
+            return intRunning;
+        }
 
         public string CountScore(int[] intResult)
         {

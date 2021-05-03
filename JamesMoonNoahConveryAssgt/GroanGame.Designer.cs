@@ -47,6 +47,7 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxDice2 = new System.Windows.Forms.PictureBox();
             this.lblGoal = new System.Windows.Forms.Label();
             this.picbxBackground = new System.Windows.Forms.PictureBox();
+            this.btnNewGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxTurnIndicator)).BeginInit();
@@ -239,11 +240,22 @@ namespace JamesMoonNoahConveryAssgt
             this.picbxBackground.TabIndex = 17;
             this.picbxBackground.TabStop = false;
             // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Location = new System.Drawing.Point(367, 370);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(75, 23);
+            this.btnNewGame.TabIndex = 18;
+            this.btnNewGame.Text = "New Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.lblGoal);
             this.Controls.Add(this.picbxDice2);
             this.Controls.Add(this.picbxDice1);
@@ -295,5 +307,6 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.PictureBox picbxDice2;
         private System.Windows.Forms.Label lblGoal;
         private System.Windows.Forms.PictureBox picbxBackground;
+        private System.Windows.Forms.Button btnNewGame;
     }
 }
