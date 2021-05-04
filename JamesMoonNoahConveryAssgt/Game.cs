@@ -33,6 +33,11 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
+        private void SetRunningScore(int score)
+        {
+            intRunning = score;
+        }
+
         public int GetRunningScore()
         {
             return intRunning;

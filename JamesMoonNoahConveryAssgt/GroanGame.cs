@@ -35,6 +35,10 @@ namespace JamesMoonNoahConveryAssgt
             Show();
             MakePlayerTurn();
             btnNewGame.Visible = false;
+            if (currentGame.IsThereAI() == true)
+            {
+                AITurn();
+            }
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
         }
 
