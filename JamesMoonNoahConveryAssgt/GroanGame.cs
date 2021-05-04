@@ -41,7 +41,7 @@ namespace JamesMoonNoahConveryAssgt
             }
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
         }
-
+        
         private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules.Show();
@@ -66,7 +66,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 picbxTurnIndicator.BackColor = Color.Red;
                 lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
-                txtbxRunningScore.Text = txtbxPlayer1Score.Text;
+                //grabbedRunningScore.ToString = txtbxPlayer1Score.Text;
             }
             if(currentSession.GetCurrentGame().WhosTurn() == 1)
             {
