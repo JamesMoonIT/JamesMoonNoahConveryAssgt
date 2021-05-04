@@ -39,7 +39,7 @@ namespace JamesMoonNoahConveryAssgt
             }
             else
             {
-                picbxTurnIndicator.BackColor = Color.Blue;
+                picbxTurnIndicator.BackColor = Color.Green;
             }
             btnNewGame.Visible = false;
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
@@ -63,7 +63,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnPass_Click(object sender, EventArgs e)
         {
-            int grabbedRunningScore = 
+            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
             currentSession.GetCurrentGame().SwitchPlayers();
             if(currentSession.GetCurrentGame().WhosTurn() == 0)
             {
@@ -130,7 +130,7 @@ namespace JamesMoonNoahConveryAssgt
             }
             else
             {
-                picbxTurnIndicator.BackColor = Color.Blue;
+                picbxTurnIndicator.BackColor = Color.Green;
             }
         }
 
