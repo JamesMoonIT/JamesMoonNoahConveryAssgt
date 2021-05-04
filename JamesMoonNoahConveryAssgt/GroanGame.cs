@@ -69,12 +69,15 @@ namespace JamesMoonNoahConveryAssgt
             {
                 picbxTurnIndicator.BackColor = Color.Red;
                 lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+                txtbxRunningScore.Text = txtbxPlayer1Score.Text;
             }
             if(currentSession.GetCurrentGame().WhosTurn() == 1)
             {
                 picbxTurnIndicator.BackColor = Color.Green;
                 lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+                txtbxRunningScore.Text = txtbxPlayer2Score.Text;
             }
+            
         }
 
         private void btnRoll_Click(object sender, EventArgs e)

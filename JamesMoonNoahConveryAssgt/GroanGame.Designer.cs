@@ -187,10 +187,8 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxPlayer1Score.Location = new System.Drawing.Point(21, 69);
             this.txtbxPlayer1Score.Multiline = true;
             this.txtbxPlayer1Score.Name = "txtbxPlayer1Score";
-            this.txtbxPlayer1Score.ReadOnly = true;
             this.txtbxPlayer1Score.Size = new System.Drawing.Size(128, 369);
             this.txtbxPlayer1Score.TabIndex = 12;
-            this.txtbxPlayer1Score.Text = "Test Text";
             // 
             // txtbxPlayer2Score
             // 
@@ -200,10 +198,8 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxPlayer2Score.Location = new System.Drawing.Point(650, 69);
             this.txtbxPlayer2Score.Multiline = true;
             this.txtbxPlayer2Score.Name = "txtbxPlayer2Score";
-            this.txtbxPlayer2Score.ReadOnly = true;
             this.txtbxPlayer2Score.Size = new System.Drawing.Size(128, 369);
             this.txtbxPlayer2Score.TabIndex = 13;
-            this.txtbxPlayer2Score.Text = "Test Text";
             // 
             // picbxDice1
             // 
