@@ -18,6 +18,8 @@ namespace JamesMoonNoahConveryAssgt
         private Session currentSession;
         private SolidBrush background = new SolidBrush(Color.White);
         private SolidBrush dots = new SolidBrush(Color.Black);
+        GroanRules GroanRules = new GroanRules();
+        frmGroanHome GroanHome = new frmGroanHome();
 
 
         public frmGroanGame(Session currentGame)
@@ -39,28 +41,29 @@ namespace JamesMoonNoahConveryAssgt
             {
                 picbxTurnIndicator.BackColor = Color.Green;
             }
+            btnNewGame.Visible = false;
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
             Application.DoEvents();
         }
 
         private void btnRules_Click(object sender, EventArgs e)
         {
-            GroanRules GroanRules = new GroanRules();
-
             GroanRules.Show();
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            frmGroanHome GroanHome = new frmGroanHome();
-
-            this.Close();
             GroanHome.Show();
-
         }
 
         private void btnPass_Click(object sender, EventArgs e)
         {
+            int grabbedRunningScore = 
             currentSession.GetCurrentGame().SwitchPlayers();
             if(currentSession.GetCurrentGame().WhosTurn() == 0)
             {
@@ -87,7 +90,8 @@ namespace JamesMoonNoahConveryAssgt
 
         private void AITurn()
         {
-            // Add more
+            // Add some talking parts here or something....
+            System.Threading.Thread.Sleep(3000);
             DiceRoll();
             btnRoll.Visible = true;
             
@@ -108,6 +112,29 @@ namespace JamesMoonNoahConveryAssgt
             result1 = roll1;
             result2 = roll2;
             CheckDice(result1, result2);
+            if (currentSession.HasGameEnded())
+            {
+                UpdateWins();
+                btnRoll.Visible = false;
+                btnQuit.Visible = true;
+                btnNewGame.Visible = true;
+            }
+            else
+            {
+                currentSession.GetCurrentGame().SwitchPlayers();
+            }
+        }
+
+        private void MakePlayerTurn()
+        {
+            if (currentSession.GetCurrentGame().WhosTurn() == 0)
+            {
+                picbxTurnIndicator.BackColor = Color.Red;
+            }
+            else
+            {
+                picbxTurnIndicator.BackColor = Color.Blue;
+            }
         }
 
         private void CheckDice(int result1, int result2)
@@ -115,6 +142,7 @@ namespace JamesMoonNoahConveryAssgt
             if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
+
                 txtbxRunningScore.Text = "Turn Passed";
                 currentSession.GetCurrentGame().SwitchPlayers();
             }
@@ -162,6 +190,11 @@ namespace JamesMoonNoahConveryAssgt
         {
             firstDice.Clear(Color.White);
             secondDice.Clear(Color.White);
+        }
+
+        private void UpdateWins()
+        {
+            txtbxPlayer1Score.Text = "Total Wins: " + currentSession.GetPlayerOneWins() + "\n\nTest";
         }
 
         private void CreateDiceFaceOne(int diceNumber)
@@ -231,6 +264,8 @@ namespace JamesMoonNoahConveryAssgt
                 secondDice.FillEllipse(dots, 95, 95, 19, 19);
             }
         }
+
+        
 
         private void CreateDiceFaceFive(int diceNumber)
         {
