@@ -30,15 +30,10 @@ namespace JamesMoonNoahConveryAssgt
             currentSession = currentGame;
             lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
             lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
-            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
             MakePlayerTurn();
             btnNewGame.Visible = false;
-            if (currentGame.IsThereAI() == true && currentGame.GetCurrentGame().WhosTurn() == 1)
-            {
-                AITurn();
-            }
-            //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
+            Application.DoEvents();
         }
         
         private void btnRules_Click(object sender, EventArgs e)
@@ -61,30 +56,20 @@ namespace JamesMoonNoahConveryAssgt
         {
             int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
             currentSession.GetCurrentGame().SwitchPlayers();
-            if(currentSession.GetCurrentGame().WhosTurn() == 0)
+            MakePlayerTurn();
+            if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
             {
-                picbxTurnIndicator.BackColor = Color.Red;
-                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
-                //grabbedRunningScore.ToString = txtbxPlayer1Score.Text;
+                 AITurn();
             }
-            if(currentSession.GetCurrentGame().WhosTurn() == 1)
-            {
-                if (currentSession.IsThereAI() == true)
-                {
-                    btnRoll.Visible = false;
-                    btnPass.Visible = false;
-                    AITurn();
-                }
-                picbxTurnIndicator.BackColor = Color.Green;
-                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
-                txtbxRunningScore.Text = txtbxPlayer2Score.Text;
-            }
-            
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
             DiceRoll();
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                AITurn();
+            }
         }
 
         private void AITurn()
@@ -122,14 +107,10 @@ namespace JamesMoonNoahConveryAssgt
             else
             {
                 currentSession.GetCurrentGame().SwitchPlayers();
-                if (currentSession.GetCurrentGame().WhosTurn() == 1)
+                MakePlayerTurn();
+                if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
                 {
-                    if (currentSession.IsThereAI() == true)
-                    {
-                        btnRoll.Visible = false;
-                        btnPass.Visible = false;
-                        AITurn();
-                    }
+                     AITurn();
                 }
                 btnRoll.Visible = true;
                 btnPass.Visible = true;
@@ -138,6 +119,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void MakePlayerTurn()
         {
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
@@ -171,6 +153,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 // if player rolls zero 1's
                 runningscore = Convert.ToInt32(result1 + result2);
+                txtbxRunningScore.Text = Convert.ToString(runningscore);
             }
         }
 
