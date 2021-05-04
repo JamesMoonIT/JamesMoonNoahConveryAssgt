@@ -13,7 +13,6 @@ namespace JamesMoonNoahConveryAssgt
     public partial class frmGroanGame : Form
     {
         private Graphics firstDice, secondDice;
-        private PictureBox firstDiceBox, secondDiceBox;
         private Random rand;
         private Session currentSession;
         private SolidBrush background = new SolidBrush(Color.White);
@@ -33,17 +32,10 @@ namespace JamesMoonNoahConveryAssgt
             lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
-            if (currentSession.GetCurrentGame().WhosTurn() == 0)
-            {
-                picbxTurnIndicator.BackColor = Color.Red;
-            }
-            else
-            {
-                picbxTurnIndicator.BackColor = Color.Green;
-            }
+            Show();
+            MakePlayerTurn();
             btnNewGame.Visible = false;
             //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
-            Application.DoEvents();
         }
 
         private void btnRules_Click(object sender, EventArgs e)
@@ -53,12 +45,13 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-
+            currentSession.restart(currentSession.GetCurrentGame().GetGoal());
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
             GroanHome.Show();
+            Hide();
         }
 
         private void btnPass_Click(object sender, EventArgs e)
@@ -73,6 +66,12 @@ namespace JamesMoonNoahConveryAssgt
             }
             if(currentSession.GetCurrentGame().WhosTurn() == 1)
             {
+                if (currentSession.IsThereAI() == true)
+                {
+                    btnRoll.Visible = false;
+                    btnPass.Visible = false;
+                    AITurn();
+                }
                 picbxTurnIndicator.BackColor = Color.Green;
                 lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
                 txtbxRunningScore.Text = txtbxPlayer2Score.Text;
@@ -83,18 +82,17 @@ namespace JamesMoonNoahConveryAssgt
         private void btnRoll_Click(object sender, EventArgs e)
         {
             btnRoll.Visible = false;
-            btnRoll.Refresh();
+            btnPass.Visible = false;
             DiceRoll();
             btnRoll.Visible = true;
+            btnPass.Visible = true;
         }
 
         private void AITurn()
         {
             // Add some talking parts here or something....
             System.Threading.Thread.Sleep(3000);
-            DiceRoll();
-            btnRoll.Visible = true;
-            
+            DiceRoll(); 
         }
 
         private void DiceRoll()
@@ -116,12 +114,24 @@ namespace JamesMoonNoahConveryAssgt
             {
                 UpdateWins();
                 btnRoll.Visible = false;
+                btnPass.Visible = false;
                 btnQuit.Visible = true;
                 btnNewGame.Visible = true;
             }
             else
             {
                 currentSession.GetCurrentGame().SwitchPlayers();
+                if (currentSession.GetCurrentGame().WhosTurn() == 1)
+                {
+                    if (currentSession.IsThereAI() == true)
+                    {
+                        btnRoll.Visible = false;
+                        btnPass.Visible = false;
+                        AITurn();
+                    }
+                }
+                btnRoll.Visible = true;
+                btnPass.Visible = true;
             }
         }
 
@@ -134,6 +144,7 @@ namespace JamesMoonNoahConveryAssgt
             else
             {
                 picbxTurnIndicator.BackColor = Color.Green;
+                AITurn();
             }
         }
 
