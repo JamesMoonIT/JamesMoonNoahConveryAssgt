@@ -16,21 +16,16 @@ namespace JamesMoonNoahConveryAssgt
 
         public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
-            int intWhosTurn = rand.Next(0, 2);
             intGoal = finalGoal;
             boolEnd = false;
             diceStats = new Dice();
             numOfPlayers[0] = playerOne;
             numOfPlayers[1] = playerTwo;
+        }
 
-            if (intWhosTurn == 0)
-            {
-                intTurn = 0;
-            }
-            else
-            {
-                intTurn = 1;
-            }
+        private void SetRunningScore(int score)
+        {
+            intRunning = score;
         }
 
         public int GetRunningScore()

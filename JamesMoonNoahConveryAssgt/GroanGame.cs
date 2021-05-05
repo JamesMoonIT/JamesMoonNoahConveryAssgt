@@ -13,7 +13,6 @@ namespace JamesMoonNoahConveryAssgt
     public partial class frmGroanGame : Form
     {
         private Graphics firstDice, secondDice;
-        private PictureBox firstDiceBox, secondDiceBox;
         private Random rand;
         private Session currentSession;
         private SolidBrush background = new SolidBrush(Color.White);
@@ -31,21 +30,12 @@ namespace JamesMoonNoahConveryAssgt
             currentSession = currentGame;
             lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
             lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
-            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
-            if (currentSession.GetCurrentGame().WhosTurn() == 0)
-            {
-                picbxTurnIndicator.BackColor = Color.Red;
-            }
-            else
-            {
-                picbxTurnIndicator.BackColor = Color.Blue;
-            }
+            MakePlayerTurn();
             btnNewGame.Visible = false;
-            //txtbxRunningScore.Text = currentSession.GetCurrentGame().get
             Application.DoEvents();
         }
-
+        
         private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules.Show();
@@ -53,12 +43,13 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-
+            currentSession.restart(currentSession.GetCurrentGame().GetGoal());
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
             GroanHome.Show();
+            Hide();
         }
 
         private void btnPass_Click(object sender, EventArgs e)
@@ -68,19 +59,18 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            btnRoll.Visible = false;
-            btnRoll.Refresh();
             DiceRoll();
-            btnRoll.Visible = true;
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                AITurn();
+            }
         }
 
         private void AITurn()
         {
             // Add some talking parts here or something....
             System.Threading.Thread.Sleep(3000);
-            DiceRoll();
-            btnRoll.Visible = true;
-            
+            DiceRoll(); 
         }
 
         private void PassTurn()
@@ -95,6 +85,8 @@ namespace JamesMoonNoahConveryAssgt
 
         private void DiceRoll()
         {
+            btnRoll.Visible = false;
+            btnPass.Visible = false;
             ClearDice();
             int roll1 = 0, roll2 = 0, result1, result2;
             for (int iteration = 0; iteration < 10; iteration++)
@@ -112,29 +104,39 @@ namespace JamesMoonNoahConveryAssgt
             {
                 UpdateWins();
                 btnRoll.Visible = false;
+                btnPass.Visible = false;
                 btnQuit.Visible = true;
                 btnNewGame.Visible = true;
             }
             else
             {
                 currentSession.GetCurrentGame().SwitchPlayers();
+                MakePlayerTurn();
+                if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
+                {
+                     AITurn();
+                }
+                btnRoll.Visible = true;
+                btnPass.Visible = true;
             }
         }
 
         private void MakePlayerTurn()
         {
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
             }
             else
             {
-                picbxTurnIndicator.BackColor = Color.Blue;
+                picbxTurnIndicator.BackColor = Color.Green;
             }
         }
 
         private void CheckDice(int result1, int result2)
         {
+            int runningscore;
             if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
@@ -144,12 +146,16 @@ namespace JamesMoonNoahConveryAssgt
             else if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
+                runningscore = 0;
+                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
                 txtbxRunningScore.Text = "Snake Eyes!";
+                currentSession.GetCurrentGame().SwitchPlayers();
             }
             else
             {
                 // if player rolls zero 1's
-                txtbxRunningScore.Text = Convert.ToString(result1 + result2);
+                runningscore = Convert.ToInt32(result1 + result2);
+                txtbxRunningScore.Text = Convert.ToString(runningscore);
             }
         }
 
