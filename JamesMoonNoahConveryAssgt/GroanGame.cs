@@ -62,6 +62,7 @@ namespace JamesMoonNoahConveryAssgt
             DiceRoll();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
+                MakePlayerTurn();
                 AITurn();
             }
         }
@@ -110,8 +111,6 @@ namespace JamesMoonNoahConveryAssgt
             }
             else
             {
-                currentSession.GetCurrentGame().SwitchPlayers();
-                MakePlayerTurn();
                 if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
                 {
                      AITurn();
@@ -141,7 +140,6 @@ namespace JamesMoonNoahConveryAssgt
             {
                 // if player rolls one 1
                 PassTurn();
-                currentSession.GetCurrentGame().SwitchPlayers();
             }
             else if (result1 == 1 && result2 == 1)
             {
