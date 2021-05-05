@@ -158,7 +158,6 @@ namespace JamesMoonNoahConveryAssgt
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
-
             }
             else
             {
