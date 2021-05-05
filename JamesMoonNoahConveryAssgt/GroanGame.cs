@@ -63,18 +63,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnPass_Click(object sender, EventArgs e)
         {
-            int grabbedRunningScore = 
-            currentSession.GetCurrentGame().SwitchPlayers();
-            if(currentSession.GetCurrentGame().WhosTurn() == 0)
-            {
-                picbxTurnIndicator.BackColor = Color.Red;
-                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
-            }
-            if(currentSession.GetCurrentGame().WhosTurn() == 1)
-            {
-                picbxTurnIndicator.BackColor = Color.Green;
-                lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
-            }
+            PassTurn();
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -92,6 +81,16 @@ namespace JamesMoonNoahConveryAssgt
             DiceRoll();
             btnRoll.Visible = true;
             
+        }
+
+        private void PassTurn()
+        {
+            int grabbedRunningScore = Convert.ToInt32(txtbxRunningScore.Text);
+            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore);
+            txtbxRunningScore.Text = "Turn Passed";
+            txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+            currentSession.GetCurrentGame().SwitchPlayers();
+            MakePlayerTurn();
         }
 
         private void DiceRoll()
@@ -139,8 +138,7 @@ namespace JamesMoonNoahConveryAssgt
             if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
-
-                txtbxRunningScore.Text = "Turn Passed";
+                PassTurn();
                 currentSession.GetCurrentGame().SwitchPlayers();
             }
             else if (result1 == 1 && result2 == 1)

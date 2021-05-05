@@ -48,6 +48,8 @@ namespace JamesMoonNoahConveryAssgt
             this.lblGoal = new System.Windows.Forms.Label();
             this.picbxBackground = new System.Windows.Forms.PictureBox();
             this.btnNewGame = new System.Windows.Forms.Button();
+            this.lblP1Wins = new System.Windows.Forms.Label();
+            this.lblP2Wins = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerTwoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxTurnIndicator)).BeginInit();
@@ -89,7 +91,7 @@ namespace JamesMoonNoahConveryAssgt
             this.lblPlayer2Name.BackColor = System.Drawing.Color.Orange;
             this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer2Name.ForeColor = System.Drawing.Color.White;
-            this.lblPlayer2Name.Location = new System.Drawing.Point(650, 28);
+            this.lblPlayer2Name.Location = new System.Drawing.Point(650, 18);
             this.lblPlayer2Name.Name = "lblPlayer2Name";
             this.lblPlayer2Name.Size = new System.Drawing.Size(128, 28);
             this.lblPlayer2Name.TabIndex = 3;
@@ -101,7 +103,7 @@ namespace JamesMoonNoahConveryAssgt
             this.lblPlayer1Name.BackColor = System.Drawing.Color.Orange;
             this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer1Name.ForeColor = System.Drawing.Color.White;
-            this.lblPlayer1Name.Location = new System.Drawing.Point(21, 28);
+            this.lblPlayer1Name.Location = new System.Drawing.Point(21, 18);
             this.lblPlayer1Name.Name = "lblPlayer1Name";
             this.lblPlayer1Name.Size = new System.Drawing.Size(128, 28);
             this.lblPlayer1Name.TabIndex = 4;
@@ -184,26 +186,26 @@ namespace JamesMoonNoahConveryAssgt
             this.txtbxPlayer1Score.BackColor = System.Drawing.Color.DarkOrange;
             this.txtbxPlayer1Score.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxPlayer1Score.ForeColor = System.Drawing.Color.White;
-            this.txtbxPlayer1Score.Location = new System.Drawing.Point(21, 69);
+            this.txtbxPlayer1Score.Location = new System.Drawing.Point(21, 93);
             this.txtbxPlayer1Score.Multiline = true;
             this.txtbxPlayer1Score.Name = "txtbxPlayer1Score";
             this.txtbxPlayer1Score.ReadOnly = true;
-            this.txtbxPlayer1Score.Size = new System.Drawing.Size(128, 369);
+            this.txtbxPlayer1Score.Size = new System.Drawing.Size(128, 345);
             this.txtbxPlayer1Score.TabIndex = 12;
-            this.txtbxPlayer1Score.Text = "Test Text";
+            this.txtbxPlayer1Score.Text = "Cumulative Score:";
             // 
             // txtbxPlayer2Score
             // 
             this.txtbxPlayer2Score.BackColor = System.Drawing.Color.DarkOrange;
             this.txtbxPlayer2Score.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxPlayer2Score.ForeColor = System.Drawing.Color.White;
-            this.txtbxPlayer2Score.Location = new System.Drawing.Point(650, 69);
+            this.txtbxPlayer2Score.Location = new System.Drawing.Point(650, 93);
             this.txtbxPlayer2Score.Multiline = true;
             this.txtbxPlayer2Score.Name = "txtbxPlayer2Score";
             this.txtbxPlayer2Score.ReadOnly = true;
-            this.txtbxPlayer2Score.Size = new System.Drawing.Size(128, 369);
+            this.txtbxPlayer2Score.Size = new System.Drawing.Size(128, 345);
             this.txtbxPlayer2Score.TabIndex = 13;
-            this.txtbxPlayer2Score.Text = "Test Text";
+            this.txtbxPlayer2Score.Text = "Cumulative Score:";
             // 
             // picbxDice1
             // 
@@ -250,11 +252,35 @@ namespace JamesMoonNoahConveryAssgt
             this.btnNewGame.UseVisualStyleBackColor = true;
             this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
+            // lblP1Wins
+            // 
+            this.lblP1Wins.AutoSize = true;
+            this.lblP1Wins.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblP1Wins.ForeColor = System.Drawing.Color.White;
+            this.lblP1Wins.Location = new System.Drawing.Point(58, 59);
+            this.lblP1Wins.Name = "lblP1Wins";
+            this.lblP1Wins.Size = new System.Drawing.Size(45, 15);
+            this.lblP1Wins.TabIndex = 19;
+            this.lblP1Wins.Text = "Wins: 0";
+            // 
+            // lblP2Wins
+            // 
+            this.lblP2Wins.AutoSize = true;
+            this.lblP2Wins.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblP2Wins.ForeColor = System.Drawing.Color.White;
+            this.lblP2Wins.Location = new System.Drawing.Point(689, 59);
+            this.lblP2Wins.Name = "lblP2Wins";
+            this.lblP2Wins.Size = new System.Drawing.Size(45, 15);
+            this.lblP2Wins.TabIndex = 20;
+            this.lblP2Wins.Text = "Wins: 0";
+            // 
             // frmGroanGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.lblP2Wins);
+            this.Controls.Add(this.lblP1Wins);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.lblGoal);
             this.Controls.Add(this.picbxDice2);
@@ -308,5 +334,7 @@ namespace JamesMoonNoahConveryAssgt
         private System.Windows.Forms.Label lblGoal;
         private System.Windows.Forms.PictureBox picbxBackground;
         private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Label lblP1Wins;
+        private System.Windows.Forms.Label lblP2Wins;
     }
 }
