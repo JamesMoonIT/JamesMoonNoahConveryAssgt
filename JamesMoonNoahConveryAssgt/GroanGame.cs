@@ -35,7 +35,7 @@ namespace JamesMoonNoahConveryAssgt
             btnNewGame.Visible = false;
             Application.DoEvents();
         }
-        
+
         private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules.Show();
@@ -55,7 +55,7 @@ namespace JamesMoonNoahConveryAssgt
         private void btnPass_Click(object sender, EventArgs e)
         {
             PassTurn();
-            if(currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
                 string botTurn = "Ok now it's my turn";
                 MessageBox.Show(botTurn);
@@ -90,7 +90,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 PassTurn();
             }
-            
+
         }
 
         private void AIBrain()
@@ -103,7 +103,14 @@ namespace JamesMoonNoahConveryAssgt
             int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
             currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore);
             txtbxRunningScore.Text = "Turn Passed";
-            txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+            if (currentSession.GetCurrentGame().WhosTurn() == 0)
+            {
+                txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+            }
+            else
+            {
+                txtbxPlayer2Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+            }
             currentSession.GetCurrentGame().SwitchPlayers();
             MakePlayerTurn();
         }
@@ -136,7 +143,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
                 {
-                     AITurn();
+                    AITurn();
                 }
                 btnRoll.Visible = true;
                 btnPass.Visible = true;
@@ -150,7 +157,7 @@ namespace JamesMoonNoahConveryAssgt
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
-                
+
             }
             else
             {
@@ -164,10 +171,9 @@ namespace JamesMoonNoahConveryAssgt
             if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
-                currentSession.GetCurrentGame().SetRunningScore(runningscore);
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
                 txtbxRunningScore.Text = "Snake Eyes!";
-                currentSession.GetCurrentGame().SwitchPlayers();
+                PassTurn();
             }
             else if (result1 == 1 || result2 == 1)
             {
@@ -292,7 +298,7 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        
+
 
         private void CreateDiceFaceFive(int diceNumber)
         {
