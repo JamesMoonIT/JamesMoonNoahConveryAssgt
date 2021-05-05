@@ -123,6 +123,7 @@ namespace JamesMoonNoahConveryAssgt
                 DisplayDice(roll2, 2);
                 System.Threading.Thread.Sleep(100);
             }
+            txtbxRunningScore.Text = "0";
             CheckDice(roll1, roll2);
             if (currentSession.HasGameEnded())
             {
@@ -160,7 +161,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void CheckDice(int result1, int result2)
         {
-            int currentScore = currentSession.GetCurrentGame().GetRunningScore(), runningscore = 0;
+            int currentScore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore(), runningscore = 0;
             if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
