@@ -100,7 +100,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void PassTurn()
         {
-            int grabbedRunningScore = Convert.ToInt32(txtbxRunningScore.Text);
+            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
             currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore);
             txtbxRunningScore.Text = "Turn Passed";
             txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
@@ -113,7 +113,7 @@ namespace JamesMoonNoahConveryAssgt
             btnRoll.Visible = false;
             btnPass.Visible = false;
             ClearDice();
-            int roll1 = 0, roll2 = 0, result1, result2;
+            int roll1 = 0, roll2 = 0;
             for (int iteration = 0; iteration < 10; iteration++)
             {
                 roll1 = rand.Next(1, 7);
@@ -122,9 +122,7 @@ namespace JamesMoonNoahConveryAssgt
                 DisplayDice(roll2, 2);
                 System.Threading.Thread.Sleep(100);
             }
-            result1 = roll1;
-            result2 = roll2;
-            CheckDice(result1, result2);
+            CheckDice(roll1, roll2);
             if (currentSession.HasGameEnded())
             {
                 UpdateWins();
@@ -142,6 +140,7 @@ namespace JamesMoonNoahConveryAssgt
                 btnRoll.Visible = true;
                 btnPass.Visible = true;
             }
+            MakePlayerTurn();
         }
 
         private void MakePlayerTurn()
@@ -160,25 +159,28 @@ namespace JamesMoonNoahConveryAssgt
 
         private void CheckDice(int result1, int result2)
         {
-            int runningscore;
-            if (result1 == 1 || result2 == 1)
-            {
-                // if player rolls one 1
-                PassTurn();
-            }
-            else if (result1 == 1 && result2 == 1)
+            int currentScore = currentSession.GetCurrentGame().GetRunningScore(), runningscore = 0;
+            if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
-                runningscore = 0;
+                currentSession.GetCurrentGame().SetRunningScore(runningscore);
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
                 txtbxRunningScore.Text = "Snake Eyes!";
                 currentSession.GetCurrentGame().SwitchPlayers();
             }
+            else if (result1 == 1 || result2 == 1)
+            {
+                // if player rolls one 1
+                txtbxRunningScore.Text = "0";
+                PassTurn();
+            }
             else
             {
                 // if player rolls zero 1's
-                runningscore = Convert.ToInt32(result1 + result2);
+                runningscore = currentScore + result1 + result2;
                 txtbxRunningScore.Text = Convert.ToString(runningscore);
+                currentScore = Convert.ToInt32(txtbxRunningScore.Text);
+                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
             }
         }
 

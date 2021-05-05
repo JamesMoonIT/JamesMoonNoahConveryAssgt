@@ -23,7 +23,7 @@ namespace JamesMoonNoahConveryAssgt
             numOfPlayers[1] = playerTwo;
         }
 
-        private void SetRunningScore(int score)
+        public void SetRunningScore(int score)
         {
             intRunning = score;
         }
