@@ -101,7 +101,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void PassTurn()
         {
-            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
+            int grabbedRunningScore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore();
             currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore);
             txtbxRunningScore.Text = "Turn Passed";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
@@ -172,6 +172,7 @@ namespace JamesMoonNoahConveryAssgt
             if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
+                runningscore = 0;
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
                 txtbxRunningScore.Text = "Snake Eyes!";
                 PassTurn();
@@ -179,7 +180,9 @@ namespace JamesMoonNoahConveryAssgt
             else if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
-                txtbxRunningScore.Text = "0";
+                runningscore = 0;
+                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
+                txtbxRunningScore.Text = Convert.ToString(runningscore);
                 PassTurn();
             }
             else
