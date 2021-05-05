@@ -71,7 +71,17 @@ namespace JamesMoonNoahConveryAssgt
         {
             // Add some talking parts here or something....
             System.Threading.Thread.Sleep(3000);
-            DiceRoll(); 
+            DiceRoll();
+            if (Convert.ToInt32(txtbxRunningScore) < 6)
+            {
+
+            }
+            
+        }
+
+        private void AIBrain()
+        {
+
         }
 
         private void PassTurn()
