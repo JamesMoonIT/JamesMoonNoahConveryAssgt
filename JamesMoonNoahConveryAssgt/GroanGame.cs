@@ -54,13 +54,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnPass_Click(object sender, EventArgs e)
         {
-            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
-            currentSession.GetCurrentGame().SwitchPlayers();
-            MakePlayerTurn();
-            if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
-            {
-                 AITurn();
-            }
+            PassTurn();
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -87,6 +81,16 @@ namespace JamesMoonNoahConveryAssgt
         private void AIBrain()
         {
 
+        }
+
+        private void PassTurn()
+        {
+            int grabbedRunningScore = Convert.ToInt32(txtbxRunningScore.Text);
+            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore);
+            txtbxRunningScore.Text = "Turn Passed";
+            txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+            currentSession.GetCurrentGame().SwitchPlayers();
+            MakePlayerTurn();
         }
 
         private void DiceRoll()
@@ -146,9 +150,7 @@ namespace JamesMoonNoahConveryAssgt
             if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
-                runningscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore() + 0;
-                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
-                txtbxRunningScore.Text = "Turn Passed";
+                PassTurn();
                 currentSession.GetCurrentGame().SwitchPlayers();
             }
             else if (result1 == 1 && result2 == 1)
