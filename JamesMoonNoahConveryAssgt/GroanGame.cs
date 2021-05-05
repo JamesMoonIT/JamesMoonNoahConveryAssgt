@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,6 +55,12 @@ namespace JamesMoonNoahConveryAssgt
         private void btnPass_Click(object sender, EventArgs e)
         {
             PassTurn();
+            if(currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                string botTurn = "Ok now it's my turn";
+                MessageBox.Show(botTurn);
+                AITurn();
+            }
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -63,6 +69,8 @@ namespace JamesMoonNoahConveryAssgt
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
                 MakePlayerTurn();
+                string botTurn = "Ok now it's my turn";
+                MessageBox.Show(botTurn);
                 AITurn();
             }
         }
@@ -70,11 +78,17 @@ namespace JamesMoonNoahConveryAssgt
         private void AITurn()
         {
             // Add some talking parts here or something....
+            btnRoll.Visible = false;
+            btnPass.Visible = false;
             System.Threading.Thread.Sleep(3000);
             DiceRoll();
-            if (Convert.ToInt32(txtbxRunningScore) < 6)
+            if (Convert.ToInt32(txtbxRunningScore.Text) < 6)
             {
-
+                DiceRoll();
+            }
+            else
+            {
+                PassTurn();
             }
             
         }
@@ -136,6 +150,7 @@ namespace JamesMoonNoahConveryAssgt
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
+                
             }
             else
             {
