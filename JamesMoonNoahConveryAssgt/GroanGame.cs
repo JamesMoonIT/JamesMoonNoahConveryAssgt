@@ -57,6 +57,7 @@ namespace JamesMoonNoahConveryAssgt
             PassTurn();
             if(currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
+                MakePlayerTurn();
                 string botTurn = "Ok now it's my turn";
                 MessageBox.Show(botTurn);
                 AITurn();
