@@ -64,6 +64,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
+
+
         private void btnRoll_Click(object sender, EventArgs e)
         {
             DiceRoll();
@@ -118,6 +120,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void DiceRoll()
         {
+            int result = 0;
             btnRoll.Visible = false;
             btnPass.Visible = false;
             ClearDice();
@@ -131,7 +134,7 @@ namespace JamesMoonNoahConveryAssgt
                 System.Threading.Thread.Sleep(100);
             }
             txtbxRunningScore.Text = "0";
-            CheckDice(roll1, roll2);
+            result = CheckDice(roll1, roll2);
             if (currentSession.HasGameEnded())
             {
                 UpdateWins();
@@ -142,10 +145,6 @@ namespace JamesMoonNoahConveryAssgt
             }
             else
             {
-                if (currentSession.GetCurrentGame().WhosTurn() == 1 && currentSession.IsThereAI() == true)
-                {
-                    AITurn();
-                }
                 btnRoll.Visible = true;
                 btnPass.Visible = true;
             }
@@ -165,7 +164,7 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CheckDice(int result1, int result2)
+        private int CheckDice(int result1, int result2)
         {
             int currentScore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore(), runningscore = 0;
             if (result1 == 1 && result2 == 1)
@@ -189,9 +188,9 @@ namespace JamesMoonNoahConveryAssgt
                 // if player rolls zero 1's
                 runningscore = currentScore + result1 + result2;
                 txtbxRunningScore.Text = Convert.ToString(runningscore);
-                currentScore = Convert.ToInt32(txtbxRunningScore.Text);
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
             }
+            return runningscore;
         }
 
         private void DisplayDice(int diceNum, int dice)
@@ -230,7 +229,16 @@ namespace JamesMoonNoahConveryAssgt
 
         private void UpdateWins()
         {
-            txtbxPlayer1Score.Text = "Total Wins: " + currentSession.GetPlayerOneWins() + "\n\nTest";
+            if (currentSession.GetCurrentGame().WhosTurn() == 0)
+            {
+                currentSession.PlayerOneWins();
+                lblP1Wins.Text += "Wins: " + Convert.ToString(currentSession.GetPlayerOneWins());
+            }
+            else
+            {
+                currentSession.PlayerTwoWins();
+                lblP2Wins.Text += "Wins: " + Convert.ToString(currentSession.GetPlayerTwoWins());
+            }
         }
 
         private void CreateDiceFaceOne(int diceNumber)
@@ -300,8 +308,6 @@ namespace JamesMoonNoahConveryAssgt
                 secondDice.FillEllipse(dots, 95, 95, 19, 19);
             }
         }
-
-
 
         private void CreateDiceFaceFive(int diceNumber)
         {
