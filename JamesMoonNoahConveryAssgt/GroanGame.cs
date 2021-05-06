@@ -68,6 +68,8 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
+            btnRoll.Visible = false;
+            btnPass.Visible = false;
             DiceRoll();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
@@ -76,6 +78,8 @@ namespace JamesMoonNoahConveryAssgt
                 MessageBox.Show(botTurn);
                 AITurn();
             }
+            btnRoll.Visible = true;
+            btnPass.Visible = true;
         }
 
         private void AITurn()
@@ -85,6 +89,12 @@ namespace JamesMoonNoahConveryAssgt
             btnPass.Visible = false;
             System.Threading.Thread.Sleep(3000);
             DiceRoll();
+            AIBrain();
+
+        }
+
+        private void AIBrain()
+        {
             if (Convert.ToInt32(txtbxRunningScore.Text) < 6)
             {
                 DiceRoll();
@@ -93,12 +103,6 @@ namespace JamesMoonNoahConveryAssgt
             {
                 PassTurn();
             }
-
-        }
-
-        private void AIBrain()
-        {
-
         }
 
         private void PassTurn()
@@ -115,14 +119,13 @@ namespace JamesMoonNoahConveryAssgt
                 txtbxPlayer2Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
             }
             currentSession.GetCurrentGame().SwitchPlayers();
+            txtbxRunningScore.Text = Convert.ToString(currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore());
             MakePlayerTurn();
         }
 
         private void DiceRoll()
         {
             int result = 0;
-            btnRoll.Visible = false;
-            btnPass.Visible = false;
             ClearDice();
             int roll1 = 0, roll2 = 0;
             for (int iteration = 0; iteration < 10; iteration++)
@@ -142,11 +145,6 @@ namespace JamesMoonNoahConveryAssgt
                 btnPass.Visible = false;
                 btnQuit.Visible = true;
                 btnNewGame.Visible = true;
-            }
-            else
-            {
-                btnRoll.Visible = true;
-                btnPass.Visible = true;
             }
             MakePlayerTurn();
         }
@@ -172,13 +170,13 @@ namespace JamesMoonNoahConveryAssgt
                 // if player rolls two 1's
                 runningscore = 0;
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
-                txtbxRunningScore.Text = "Snake Eyes!";
+                txtbxRunningScore.Text = Convert.ToString(runningscore);
                 PassTurn();
             }
             else if (result1 == 1 || result2 == 1)
             {
                 // if player rolls one 1
-                runningscore = 0;
+                runningscore += currentScore;
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
                 txtbxRunningScore.Text = Convert.ToString(runningscore);
                 PassTurn();
@@ -231,13 +229,11 @@ namespace JamesMoonNoahConveryAssgt
         {
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
-                currentSession.PlayerOneWins();
-                lblP1Wins.Text += "Wins: " + Convert.ToString(currentSession.GetPlayerOneWins());
+                lblP1Wins.Text = "Wins: " + Convert.ToString(currentSession.GetPlayerOneWins());
             }
             else
             {
-                currentSession.PlayerTwoWins();
-                lblP2Wins.Text += "Wins: " + Convert.ToString(currentSession.GetPlayerTwoWins());
+                lblP2Wins.Text = "Wins: " + Convert.ToString(currentSession.GetPlayerTwoWins());
             }
         }
 
