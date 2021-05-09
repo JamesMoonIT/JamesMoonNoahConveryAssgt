@@ -30,7 +30,8 @@ namespace JamesMoonNoahConveryAssgt
 
         public bool HasGameEnded()
         {
-            if (GetCurrentGame().GetPlayers()[0].getScore() >= 50 || GetCurrentGame().GetPlayers()[1].getScore() >= 50)
+            int score = gameCurrent.GetGoal();
+            if (GetCurrentGame().GetPlayers()[0].getScore() >= score || GetCurrentGame().GetPlayers()[1].getScore() >= score)
             {
                 if (gameCurrent.WhosTurn() == 0)
                 {
@@ -46,15 +47,6 @@ namespace JamesMoonNoahConveryAssgt
             {
                 return false;
             }
-        }
-        public Player GetPlayerOne()
-        {
-            return playerOne;
-        }
-
-        public Player GetPlayerTwo()
-        {
-            return playerTwo;
         }
 
         public Game GetCurrentGame()
