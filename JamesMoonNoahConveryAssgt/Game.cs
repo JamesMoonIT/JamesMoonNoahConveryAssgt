@@ -15,11 +15,19 @@ namespace JamesMoonNoahConveryAssgt
 
         public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
-            intTurn = rand.Next(0, 2);
+            int intFirstTurn = rand.Next(0, 2);
             gameover = false;
             intGoal = finalGoal;
             numOfPlayers[0] = playerOne;
             numOfPlayers[1] = playerTwo;
+            if (intFirstTurn == 0)
+            {
+                intTurn = 0;
+            }
+            else
+            {
+                intTurn = 1;
+            }
         }
 
         public void GameIsOver()

@@ -45,8 +45,16 @@ namespace JamesMoonNoahConveryAssgt
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             currentSession.restart(currentSession.GetCurrentGame().GetGoal());
-            txtbxPlayer1Score.Text = "Cumulative Score: \r\n";
-            txtbxPlayer2Score.Text = "Cumulative Score: \r\n";
+            txtbxPlayer1Score.Text = "Cumulative Score:";
+            currentSession.GetCurrentGame().GetPlayers()[0].setScore(0);
+            txtbxPlayer2Score.Text = "Cumulative Score:";
+            currentSession.GetCurrentGame().GetPlayers()[1].setScore(0);
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                AIStart();
+            }
+            MakePlayerTurn();
+            txtbxRunningScore.Text = "0";
             btnNewGame.Visible = false;
             btnRoll.Visible = true;
             btnPass.Visible = true;
@@ -198,7 +206,7 @@ namespace JamesMoonNoahConveryAssgt
                 // if player rolls two 1's
                 runningscore = 0;
                 currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
-                txtbxRunningScore.Text = Convert.ToString(runningscore);
+                txtbxRunningScore.Text = Convert.ToString(runningscore + currentscore);
                 PassTurn();
             }
             else if (result1 == 1 || result2 == 1)
@@ -206,7 +214,7 @@ namespace JamesMoonNoahConveryAssgt
                 // if player rolls one 1
                 runningscore = 0;
                 currentSession.GetCurrentGame().SetRunningScore(runningscore);
-                txtbxRunningScore.Text = Convert.ToString(runningscore);
+                txtbxRunningScore.Text = Convert.ToString(runningscore + currentscore);
                 PassTurn();
             }
             else
