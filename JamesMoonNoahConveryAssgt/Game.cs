@@ -11,14 +11,27 @@ namespace JamesMoonNoahConveryAssgt
         private Player[] numOfPlayers = new Player[2];
         private Dice diceStats;
         private int intGoal, intTurn, intRunning;
+        private bool gameover;
         private Random rand = new Random();
 
         public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
+            intTurn = rand.Next(0, 2);
+            gameover = false;
             intGoal = finalGoal;
             diceStats = new Dice();
             numOfPlayers[0] = playerOne;
             numOfPlayers[1] = playerTwo;
+        }
+
+        public void GameIsOver()
+        {
+            gameover = true;
+        }
+
+        public bool IsGameOver()
+        {
+            return gameover;
         }
 
         public void SetRunningScore(int score)

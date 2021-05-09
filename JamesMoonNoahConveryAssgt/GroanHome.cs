@@ -55,7 +55,10 @@ namespace JamesMoonNoahConveryAssgt
             frmGroanGame GroanGame = new frmGroanGame(newSession);
             GroanGame.Show();
             Hide();
-
+            if (newSession.IsThereAI() && newSession.GetCurrentGame().WhosTurn() == 1)
+            {
+                GroanGame.AIStart();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

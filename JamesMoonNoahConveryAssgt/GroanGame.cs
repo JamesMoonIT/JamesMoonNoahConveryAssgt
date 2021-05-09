@@ -45,6 +45,12 @@ namespace JamesMoonNoahConveryAssgt
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             currentSession.restart(currentSession.GetCurrentGame().GetGoal());
+            txtbxPlayer1Score.Text = "Cumulative Score: \r\n";
+            txtbxPlayer2Score.Text = "Cumulative Score: \r\n";
+            btnNewGame.Visible = false;
+            btnRoll.Visible = true;
+            btnPass.Visible = true;
+            EnableButtons();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -58,42 +64,52 @@ namespace JamesMoonNoahConveryAssgt
             PassTurn();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
-                MakePlayerTurn();
-                string botTurn = "Ok now it's my turn";
-                MessageBox.Show(botTurn);
-                AITurn();
+                AIStart();
             }
+            EnableButtons();
+        }
+
+        public void AIStart()
+        {
+            DisableButtons();
+            string botTurn = "Ok now it's my turn";
+            MessageBox.Show(botTurn);
+            AITurn();
+            EnableButtons();
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
+            DisableButtons();
             DiceRoll();
-            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            if (currentSession.GetCurrentGame().IsGameOver() == false)
             {
-                string botTurn = "Ok now it's my turn";
-                MessageBox.Show(botTurn);
-                AITurn();
+                if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+                {
+                    AIStart();
+                }
             }
-            btnRoll.Visible = true;
-            btnPass.Visible = true;
+            EnableButtons();
         }
 
-        private void AITurn()
+        public void AITurn()
         {
-            System.Threading.Thread.Sleep(3000);
-            DiceRoll();
             if (currentSession.GetCurrentGame().WhosTurn() == 1)
             {
-                AIBrain();
+                System.Threading.Thread.Sleep(3000);
+                DiceRoll();
+                if (!currentSession.HasGameEnded())
+                {
+                    AIBrain();
+                }
             }
-
         }
 
         private void AIBrain()
         {
-            if (currentSession.GetCurrentGame().GetRunningScore() < 6)
+            if (currentSession.GetCurrentGame().GetRunningScore() < 11)
             {
-                DiceRoll();
+                AITurn();
             }
             else
             {
@@ -103,17 +119,32 @@ namespace JamesMoonNoahConveryAssgt
 
         private void PassTurn()
         {
-            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();
-            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore());
+            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore(), playerscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore();
+            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore + playerscore);
             currentSession.GetCurrentGame().SetRunningScore(0);
             txtbxRunningScore.Text = "Turn Passed";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
-                txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+                if (grabbedRunningScore == 0 && playerscore == 0)
+                {
+                    txtbxPlayer1Score.Text = "Cumulative Score: \r\n" + 0;
+
+                }
+                else
+                {
+                    txtbxPlayer1Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore + playerscore);
+                }
             }
             else
             {
-                txtbxPlayer2Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore);
+                if (grabbedRunningScore == 0 && playerscore == 0) 
+                {
+                    txtbxPlayer2Score.Text = "Cumulative Score: \r\n" + 0;
+                }
+                else
+                {
+                    txtbxPlayer2Score.Text += "\r\n" + Convert.ToString(grabbedRunningScore + playerscore);
+                }
             }
             currentSession.GetCurrentGame().SwitchPlayers();
             txtbxRunningScore.Text = Convert.ToString(currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore());
@@ -122,8 +153,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void DiceRoll()
         {
-            btnRoll.Visible = false;
-            btnPass.Visible = false;
+            DisableButtons();
             ClearDice();
             int roll1 = 0, roll2 = 0;
             for (int iteration = 0; iteration < 10; iteration++)
@@ -134,14 +164,15 @@ namespace JamesMoonNoahConveryAssgt
                 DisplayDice(roll2, 2);
                 System.Threading.Thread.Sleep(100);
             }
-            txtbxRunningScore.Text = "0";
             CheckDice(roll1, roll2);
             if (currentSession.HasGameEnded())
             {
                 UpdateWins();
+                currentSession.GetCurrentGame().GameIsOver();
                 btnRoll.Visible = false;
                 btnPass.Visible = false;
-                btnQuit.Visible = true;
+                btnQuit.Enabled = true;
+                btnRules.Enabled = true;
                 btnNewGame.Visible = true;
             }
         }
@@ -161,7 +192,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void CheckDice(int result1, int result2)
         {
-            int runningscore = currentSession.GetCurrentGame().GetRunningScore();
+            int runningscore = currentSession.GetCurrentGame().GetRunningScore(), currentscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore();
             if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
@@ -183,7 +214,7 @@ namespace JamesMoonNoahConveryAssgt
                 // if player rolls zero 1's
                 runningscore += result1 + result2;
                 currentSession.GetCurrentGame().SetRunningScore(runningscore);
-                txtbxRunningScore.Text = Convert.ToString(runningscore);
+                txtbxRunningScore.Text = Convert.ToString(runningscore + currentscore);
             }
         }
 
@@ -219,6 +250,22 @@ namespace JamesMoonNoahConveryAssgt
         {
             firstDice.Clear(Color.White);
             secondDice.Clear(Color.White);
+        }
+
+        private void DisableButtons()
+        {
+            btnRoll.Enabled = false;
+            btnPass.Enabled = false;
+            btnRules.Enabled = false;
+            btnQuit.Enabled = false;
+        }
+
+        private void EnableButtons()
+        {
+            btnRoll.Enabled = true;
+            btnPass.Enabled = true;
+            btnRules.Enabled = true;
+            btnQuit.Enabled = true;
         }
 
         private void UpdateWins()
@@ -321,6 +368,11 @@ namespace JamesMoonNoahConveryAssgt
                 secondDice.FillEllipse(dots, 95, 19, 19, 19);
                 secondDice.FillEllipse(dots, 95, 95, 19, 19);
             }
+        }
+
+        private void txtbxPlayer1Score_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void CreateDiceFaceSix(int diceNumber)

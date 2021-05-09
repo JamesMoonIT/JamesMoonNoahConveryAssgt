@@ -31,7 +31,7 @@ namespace JamesMoonNoahConveryAssgt
         public bool HasGameEnded()
         {
             int score = gameCurrent.GetGoal();
-            if (GetCurrentGame().GetPlayers()[0].getScore() >= score || GetCurrentGame().GetPlayers()[1].getScore() >= score)
+            if ((GetCurrentGame().GetPlayers()[GetCurrentGame().WhosTurn()].getScore() + GetCurrentGame().GetRunningScore()) >= score)
             {
                 if (gameCurrent.WhosTurn() == 0)
                 {
