@@ -125,6 +125,7 @@ namespace JamesMoonNoahConveryAssgt
             // txbxPlayerOneName
             // 
             this.txbxPlayerOneName.Location = new System.Drawing.Point(19, 167);
+            this.txbxPlayerOneName.MaxLength = 12;
             this.txbxPlayerOneName.Name = "txbxPlayerOneName";
             this.txbxPlayerOneName.Size = new System.Drawing.Size(100, 23);
             this.txbxPlayerOneName.TabIndex = 5;
@@ -132,6 +133,7 @@ namespace JamesMoonNoahConveryAssgt
             // txbxPlayerTwoName
             // 
             this.txbxPlayerTwoName.Location = new System.Drawing.Point(218, 167);
+            this.txbxPlayerTwoName.MaxLength = 12;
             this.txbxPlayerTwoName.Name = "txbxPlayerTwoName";
             this.txbxPlayerTwoName.Size = new System.Drawing.Size(100, 23);
             this.txbxPlayerTwoName.TabIndex = 6;
