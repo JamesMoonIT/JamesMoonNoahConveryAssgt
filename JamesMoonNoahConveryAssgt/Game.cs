@@ -9,7 +9,6 @@ namespace JamesMoonNoahConveryAssgt
     public class Game
     {
         private Player[] numOfPlayers = new Player[2];
-        private Dice diceStats;
         private int intGoal, intTurn, intRunning;
         private bool gameover;
         private Random rand = new Random();
@@ -19,7 +18,6 @@ namespace JamesMoonNoahConveryAssgt
             intTurn = rand.Next(0, 2);
             gameover = false;
             intGoal = finalGoal;
-            diceStats = new Dice();
             numOfPlayers[0] = playerOne;
             numOfPlayers[1] = playerTwo;
         }
