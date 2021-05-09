@@ -28,9 +28,9 @@ namespace JamesMoonNoahConveryAssgt
             secondDice = picbxDice2.CreateGraphics();
             rand = new Random();
             currentSession = currentGame;
-            lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].getName();
-            lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].getName();
-            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].GetName();
+            lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].GetName();
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";
             lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
             MakePlayerTurn();
             btnNewGame.Visible = false;
@@ -44,11 +44,11 @@ namespace JamesMoonNoahConveryAssgt
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            currentSession.restart(currentSession.GetCurrentGame().GetGoal());
+            currentSession.Restart(currentSession.GetCurrentGame().GetGoal());
             txtbxPlayer1Score.Text = "Cumulative Score:";
-            currentSession.GetCurrentGame().GetPlayers()[0].setScore(0);
+            currentSession.GetCurrentGame().GetPlayers()[0].SetScore(0);
             txtbxPlayer2Score.Text = "Cumulative Score:";
-            currentSession.GetCurrentGame().GetPlayers()[1].setScore(0);
+            currentSession.GetCurrentGame().GetPlayers()[1].SetScore(0);
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
             {
                 AIStart();
@@ -127,8 +127,8 @@ namespace JamesMoonNoahConveryAssgt
 
         private void PassTurn()
         {
-            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore(), playerscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore();
-            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(grabbedRunningScore + playerscore);
+            int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore(), playerscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetScore();
+            currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].SetScore(grabbedRunningScore + playerscore);
             currentSession.GetCurrentGame().SetRunningScore(0);
             txtbxRunningScore.Text = "Turn Passed";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
@@ -155,7 +155,7 @@ namespace JamesMoonNoahConveryAssgt
                 }
             }
             currentSession.GetCurrentGame().SwitchPlayers();
-            txtbxRunningScore.Text = Convert.ToString(currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore());
+            txtbxRunningScore.Text = Convert.ToString(currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetScore());
             MakePlayerTurn();
         }
 
@@ -187,7 +187,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void MakePlayerTurn()
         {
-            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getName() + "'s turn!";
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
                 picbxTurnIndicator.BackColor = Color.Red;
@@ -200,12 +200,12 @@ namespace JamesMoonNoahConveryAssgt
 
         private void CheckDice(int result1, int result2)
         {
-            int runningscore = currentSession.GetCurrentGame().GetRunningScore(), currentscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].getScore();
+            int runningscore = currentSession.GetCurrentGame().GetRunningScore(), currentscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetScore();
             if (result1 == 1 && result2 == 1)
             {
                 // if player rolls two 1's
                 runningscore = 0;
-                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].setScore(runningscore);
+                currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].SetScore(runningscore);
                 txtbxRunningScore.Text = Convert.ToString(runningscore + currentscore);
                 PassTurn();
             }
@@ -376,11 +376,6 @@ namespace JamesMoonNoahConveryAssgt
                 secondDice.FillEllipse(dots, 95, 19, 19, 19);
                 secondDice.FillEllipse(dots, 95, 95, 19, 19);
             }
-        }
-
-        private void txtbxPlayer1Score_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CreateDiceFaceSix(int diceNumber)

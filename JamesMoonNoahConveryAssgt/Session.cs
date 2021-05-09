@@ -23,7 +23,7 @@ namespace JamesMoonNoahConveryAssgt
             gameCurrent = new Game(playerOne, playerTwo, intScore);
         }
 
-        public void restart(int iScore)
+        public void Restart(int iScore)
         {
             gameCurrent = new Game(playerOne, playerTwo, iScore);
         }
@@ -31,7 +31,7 @@ namespace JamesMoonNoahConveryAssgt
         public bool HasGameEnded()
         {
             int score = gameCurrent.GetGoal();
-            if ((GetCurrentGame().GetPlayers()[GetCurrentGame().WhosTurn()].getScore() + GetCurrentGame().GetRunningScore()) >= score)
+            if ((GetCurrentGame().GetPlayers()[GetCurrentGame().WhosTurn()].GetScore() + GetCurrentGame().GetRunningScore()) >= score)
             {
                 if (gameCurrent.WhosTurn() == 0)
                 {

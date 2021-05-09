@@ -10,38 +10,26 @@ namespace JamesMoonNoahConveryAssgt
     {
         private string strName;
         private int intScore;
-        private Random rnd = new Random();
-
-        public string getName()
-        {
-            return strName;
-        }
-
-        public void setName(string myname)
-        {
-            strName = myname;
-        }
-
-        public int getScore()
-        {
-            return intScore;
-        }
-
-        public void setScore(int newScore)
-        {
-            intScore = newScore;
-        }
-
-        public Player()
-        {
-            strName = "";
-            intScore = 0;
-        }
 
         public Player(string newPlayerName)
         {
             strName = newPlayerName;
             intScore = 0;
+        }
+
+        public string GetName()
+        {
+            return strName;
+        }
+
+        public int GetScore()
+        {
+            return intScore;
+        }
+
+        public void SetScore(int newScore)
+        {
+            intScore = newScore;
         }
     }
 }
