@@ -11,13 +11,11 @@ namespace JamesMoonNoahConveryAssgt
         private Player[] numOfPlayers = new Player[2];
         private Dice diceStats;
         private int intGoal, intTurn, intRunning;
-        private bool boolEnd, boolCurrentPlayerWins;
         private Random rand = new Random();
 
         public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
             intGoal = finalGoal;
-            boolEnd = false;
             diceStats = new Dice();
             numOfPlayers[0] = playerOne;
             numOfPlayers[1] = playerTwo;
@@ -45,21 +43,6 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        public string GoalReached()
-        {
-            if (numOfPlayers[intTurn].getScore() >= intGoal)
-            {
-                boolCurrentPlayerWins = true;
-                End();
-            }
-            return "";
-        }
-
-        public void End()
-        {
-            boolEnd = true;
-        }
-
         public Player[] GetPlayers()
         {
             return numOfPlayers;
@@ -74,17 +57,5 @@ namespace JamesMoonNoahConveryAssgt
         {
             return intTurn;
         }
-
-        public bool GameOver()
-        {
-            return boolEnd;
-        }
-
-        public bool CurrentPlayerWins()
-        {
-            return boolCurrentPlayerWins;
-        }
-
-
     }
 }
