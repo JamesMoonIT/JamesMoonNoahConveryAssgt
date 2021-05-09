@@ -87,21 +87,20 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // lblPlayer2Name
             // 
-            this.lblPlayer2Name.AutoSize = true;
             this.lblPlayer2Name.BackColor = System.Drawing.Color.Orange;
-            this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer2Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer2Name.Location = new System.Drawing.Point(650, 18);
             this.lblPlayer2Name.Name = "lblPlayer2Name";
             this.lblPlayer2Name.Size = new System.Drawing.Size(128, 28);
             this.lblPlayer2Name.TabIndex = 3;
             this.lblPlayer2Name.Text = "Player2Name";
+            this.lblPlayer2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlayer1Name
             // 
-            this.lblPlayer1Name.AutoSize = true;
             this.lblPlayer1Name.BackColor = System.Drawing.Color.Orange;
-            this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer1Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer1Name.Location = new System.Drawing.Point(21, 18);
             this.lblPlayer1Name.Name = "lblPlayer1Name";
@@ -112,12 +111,12 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // lblTurnIndicator
             // 
-            this.lblTurnIndicator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTurnIndicator.AutoSize = true;
+            this.lblTurnIndicator.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTurnIndicator.BackColor = System.Drawing.Color.Transparent;
             this.lblTurnIndicator.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTurnIndicator.Location = new System.Drawing.Point(325, 18);
+            this.lblTurnIndicator.Location = new System.Drawing.Point(206, 18);
             this.lblTurnIndicator.Name = "lblTurnIndicator";
-            this.lblTurnIndicator.Size = new System.Drawing.Size(170, 28);
+            this.lblTurnIndicator.Size = new System.Drawing.Size(396, 28);
             this.lblTurnIndicator.TabIndex = 5;
             this.lblTurnIndicator.Text = "It is Player 1\'s turn";
             this.lblTurnIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,7 +154,7 @@ namespace JamesMoonNoahConveryAssgt
             // txtbxRunningScore
             // 
             this.txtbxRunningScore.Enabled = false;
-            this.txtbxRunningScore.Location = new System.Drawing.Point(342, 168);
+            this.txtbxRunningScore.Location = new System.Drawing.Point(342, 140);
             this.txtbxRunningScore.Name = "txtbxRunningScore";
             this.txtbxRunningScore.ReadOnly = true;
             this.txtbxRunningScore.Size = new System.Drawing.Size(100, 23);
@@ -225,10 +224,10 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // lblGoal
             // 
-            this.lblGoal.AutoSize = true;
-            this.lblGoal.Location = new System.Drawing.Point(377, 69);
+            this.lblGoal.BackColor = System.Drawing.Color.Transparent;
+            this.lblGoal.Location = new System.Drawing.Point(336, 56);
             this.lblGoal.Name = "lblGoal";
-            this.lblGoal.Size = new System.Drawing.Size(37, 15);
+            this.lblGoal.Size = new System.Drawing.Size(128, 21);
             this.lblGoal.TabIndex = 16;
             this.lblGoal.Text = "Goal :";
             this.lblGoal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
