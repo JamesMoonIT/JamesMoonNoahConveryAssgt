@@ -211,6 +211,7 @@ namespace JamesMoonNoahConveryAssgt
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblBotName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmGroanHome";
             this.Text = "Groan";
             this.gbNumberOfPlayers.ResumeLayout(false);

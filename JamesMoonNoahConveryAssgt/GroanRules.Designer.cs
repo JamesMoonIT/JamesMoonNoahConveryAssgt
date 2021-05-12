@@ -48,7 +48,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // btnReturn
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.Orange;
+            this.btnReturn.BackColor = System.Drawing.Color.Black;
             this.btnReturn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnReturn.ForeColor = System.Drawing.Color.White;
             this.btnReturn.Location = new System.Drawing.Point(368, 343);
@@ -75,11 +75,12 @@ namespace JamesMoonNoahConveryAssgt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblRules);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnReturn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "GroanRules";
             this.Text = "GroanRules";
             this.ResumeLayout(false);

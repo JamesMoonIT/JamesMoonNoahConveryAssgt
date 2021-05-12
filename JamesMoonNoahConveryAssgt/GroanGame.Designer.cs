@@ -302,6 +302,7 @@ namespace JamesMoonNoahConveryAssgt
             this.Controls.Add(this.picbxPlayerOneBack);
             this.Controls.Add(this.picbxTurnIndicator);
             this.Controls.Add(this.picbxBackground);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmGroanGame";
             this.Text = "GroanGame";
             ((System.ComponentModel.ISupportInitialize)(this.picbxPlayerOneBack)).EndInit();
