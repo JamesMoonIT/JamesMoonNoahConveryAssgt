@@ -60,7 +60,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // picbxPlayerOneBack
             // 
-            this.picbxPlayerOneBack.BackColor = System.Drawing.Color.Orange;
+            this.picbxPlayerOneBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.picbxPlayerOneBack.Location = new System.Drawing.Point(0, 0);
             this.picbxPlayerOneBack.Name = "picbxPlayerOneBack";
             this.picbxPlayerOneBack.Size = new System.Drawing.Size(170, 462);
@@ -69,7 +69,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // picbxPlayerTwoBack
             // 
-            this.picbxPlayerTwoBack.BackColor = System.Drawing.Color.Orange;
+            this.picbxPlayerTwoBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.picbxPlayerTwoBack.Location = new System.Drawing.Point(630, 0);
             this.picbxPlayerTwoBack.Name = "picbxPlayerTwoBack";
             this.picbxPlayerTwoBack.Size = new System.Drawing.Size(170, 462);
@@ -79,6 +79,7 @@ namespace JamesMoonNoahConveryAssgt
             // picbxTurnIndicator
             // 
             this.picbxTurnIndicator.BackColor = System.Drawing.Color.White;
+            this.picbxTurnIndicator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picbxTurnIndicator.Location = new System.Drawing.Point(166, 0);
             this.picbxTurnIndicator.Name = "picbxTurnIndicator";
             this.picbxTurnIndicator.Size = new System.Drawing.Size(466, 93);
@@ -87,7 +88,8 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // lblPlayer2Name
             // 
-            this.lblPlayer2Name.BackColor = System.Drawing.Color.Orange;
+            this.lblPlayer2Name.BackColor = System.Drawing.Color.Black;
+            this.lblPlayer2Name.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPlayer2Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer2Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer2Name.Location = new System.Drawing.Point(650, 18);
@@ -99,7 +101,8 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // lblPlayer1Name
             // 
-            this.lblPlayer1Name.BackColor = System.Drawing.Color.Orange;
+            this.lblPlayer1Name.BackColor = System.Drawing.Color.Black;
+            this.lblPlayer1Name.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPlayer1Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPlayer1Name.ForeColor = System.Drawing.Color.White;
             this.lblPlayer1Name.Location = new System.Drawing.Point(21, 18);
@@ -182,8 +185,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // txtbxPlayer1Score
             // 
-            this.txtbxPlayer1Score.BackColor = System.Drawing.Color.DarkOrange;
-            this.txtbxPlayer1Score.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtbxPlayer1Score.BackColor = System.Drawing.Color.Black;
             this.txtbxPlayer1Score.ForeColor = System.Drawing.Color.White;
             this.txtbxPlayer1Score.Location = new System.Drawing.Point(21, 93);
             this.txtbxPlayer1Score.Multiline = true;
@@ -195,8 +197,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // txtbxPlayer2Score
             // 
-            this.txtbxPlayer2Score.BackColor = System.Drawing.Color.DarkOrange;
-            this.txtbxPlayer2Score.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtbxPlayer2Score.BackColor = System.Drawing.Color.Black;
             this.txtbxPlayer2Score.ForeColor = System.Drawing.Color.White;
             this.txtbxPlayer2Score.Location = new System.Drawing.Point(650, 93);
             this.txtbxPlayer2Score.Multiline = true;
@@ -234,7 +235,7 @@ namespace JamesMoonNoahConveryAssgt
             // 
             // picbxBackground
             // 
-            this.picbxBackground.BackColor = System.Drawing.Color.RoyalBlue;
+            this.picbxBackground.BackColor = System.Drawing.Color.MidnightBlue;
             this.picbxBackground.Location = new System.Drawing.Point(166, 93);
             this.picbxBackground.Name = "picbxBackground";
             this.picbxBackground.Size = new System.Drawing.Size(466, 369);
@@ -254,22 +255,24 @@ namespace JamesMoonNoahConveryAssgt
             // lblP1Wins
             // 
             this.lblP1Wins.AutoSize = true;
-            this.lblP1Wins.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblP1Wins.BackColor = System.Drawing.Color.Black;
+            this.lblP1Wins.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblP1Wins.ForeColor = System.Drawing.Color.White;
             this.lblP1Wins.Location = new System.Drawing.Point(58, 59);
             this.lblP1Wins.Name = "lblP1Wins";
-            this.lblP1Wins.Size = new System.Drawing.Size(45, 15);
+            this.lblP1Wins.Size = new System.Drawing.Size(47, 17);
             this.lblP1Wins.TabIndex = 19;
             this.lblP1Wins.Text = "Wins: 0";
             // 
             // lblP2Wins
             // 
             this.lblP2Wins.AutoSize = true;
-            this.lblP2Wins.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblP2Wins.BackColor = System.Drawing.Color.Black;
+            this.lblP2Wins.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblP2Wins.ForeColor = System.Drawing.Color.White;
             this.lblP2Wins.Location = new System.Drawing.Point(689, 59);
             this.lblP2Wins.Name = "lblP2Wins";
-            this.lblP2Wins.Size = new System.Drawing.Size(45, 15);
+            this.lblP2Wins.Size = new System.Drawing.Size(47, 17);
             this.lblP2Wins.TabIndex = 20;
             this.lblP2Wins.Text = "Wins: 0";
             // 

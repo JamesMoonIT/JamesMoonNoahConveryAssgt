@@ -190,11 +190,11 @@ namespace JamesMoonNoahConveryAssgt
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";
             if (currentSession.GetCurrentGame().WhosTurn() == 0)
             {
-                picbxTurnIndicator.BackColor = Color.Red;
+                picbxTurnIndicator.BackColor = Color.FromArgb(69,00,81);
             }
             else
             {
-                picbxTurnIndicator.BackColor = Color.Green;
+                picbxTurnIndicator.BackColor = Color.DarkCyan;
             }
         }
 
