@@ -17,7 +17,7 @@ namespace JamesMoonNoahConveryAssgt
             InitializeComponent();
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)                    // hides GroanRules window
         {
             Hide();
         }
