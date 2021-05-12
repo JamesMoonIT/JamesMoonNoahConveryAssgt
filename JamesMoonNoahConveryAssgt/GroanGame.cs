@@ -21,53 +21,53 @@ namespace JamesMoonNoahConveryAssgt
         frmGroanHome GroanHome = new frmGroanHome();
 
 
-        public frmGroanGame(Session currentGame)
+        public frmGroanGame(Session currentGame)                                                                // incroporates a new session with every form
         {
             InitializeComponent();
             firstDice = picbxDice1.CreateGraphics();
             secondDice = picbxDice2.CreateGraphics();
             rand = new Random();
             currentSession = currentGame;
-            lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].GetName();
-            lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].GetName();
+            lblPlayer1Name.Text = currentSession.GetCurrentGame().GetPlayers()[0].GetName();                    // gets the name of player 1
+            lblPlayer2Name.Text = currentSession.GetCurrentGame().GetPlayers()[1].GetName();                    // gets the name of player 2
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";
-            lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";
-            MakePlayerTurn();
-            btnNewGame.Visible = false;
+            lblGoal.Text = "Goal: First to " + currentSession.GetCurrentGame().GetGoal() + " wins!";            // ^ Created top label with player name
+            MakePlayerTurn();                                                           // ^ Grabs game score
+            btnNewGame.Visible = false;                                                                         // Hides the new game button
             Application.DoEvents();
         }
 
-        private void btnRules_Click(object sender, EventArgs e) // Button that opens the rules page
+        private void btnRules_Click(object sender, EventArgs e)                                                 // Button that opens the rules page
         {
-            GroanRules.Show();
+            GroanRules.Show();                                                                                  // brings up the Rules window
         }
 
-        private void btnNewGame_Click(object sender, EventArgs e) //Button that starts a new game only shown after the current game has finished
+        private void btnNewGame_Click(object sender, EventArgs e)                                               //Button that starts a new game only shown after the current game has finished
         {
-            currentSession.Restart(currentSession.GetCurrentGame().GetGoal());
-            txtbxPlayer1Score.Text = "Cumulative Score:";
-            currentSession.GetCurrentGame().GetPlayers()[0].SetScore(0);
-            txtbxPlayer2Score.Text = "Cumulative Score:";
-            currentSession.GetCurrentGame().GetPlayers()[1].SetScore(0);
-            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
+            currentSession.Restart(currentSession.GetCurrentGame().GetGoal());                                  // Creates a new game in the session
+            txtbxPlayer1Score.Text = "Cumulative Score:";                                                       // Reset's cumulative score box for player 1
+            currentSession.GetCurrentGame().GetPlayers()[0].SetScore(0);                                        // Updates player 1's score
+            txtbxPlayer2Score.Text = "Cumulative Score:";                                                       // Reset's cumulative score box for player 2
+            currentSession.GetCurrentGame().GetPlayers()[1].SetScore(0);                                        // Updates player 2's score
+            if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)                  // Checks who is starting
             {
-                AIStart();
+                AIStart();                                                                                      // AI starts the game
             }
-            MakePlayerTurn();
-            txtbxRunningScore.Text = "0";
-            btnNewGame.Visible = false;
-            btnRoll.Visible = true;
-            btnPass.Visible = true;
-            EnableButtons();
+            MakePlayerTurn();                                                                                   // Creates the look of the players turn (failsafe)
+            txtbxRunningScore.Text = "0";                                                                       // Running Score set to 0
+            btnNewGame.Visible = false;                                                                         // Hides new game button
+            btnRoll.Visible = true;                                                                             // Shows Roll button
+            btnPass.Visible = true;                                                                             // Shows Pass button
+            EnableButtons();                                                                                    // Re-enables all buttons on screen
         }
 
-        private void btnQuit_Click(object sender, EventArgs e) // button that closes the game and returns you to the home menu
+        private void btnQuit_Click(object sender, EventArgs e)                                                  // button that closes the game and returns you to the home menu
         {
-            this.Close();
-            GroanHome.Show();
+            this.Close();                                                                                       // Closes GroanGame
+            GroanHome.Show();                                                                                   // Shows GroanHome
         }
 
-        private void btnPass_Click(object sender, EventArgs e) //Button that passes the players turn and swaps to the other player
+        private void btnPass_Click(object sender, EventArgs e)                                                  //Button that passes the players turn and swaps to the other player
         {
             PassTurn();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)
