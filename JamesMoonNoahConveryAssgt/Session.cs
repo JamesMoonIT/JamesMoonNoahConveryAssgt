@@ -52,36 +52,36 @@ namespace JamesMoonNoahConveryAssgt
             }
             else
             {
-                return false;
+                return false;                                                                   // returns that a player has not won
             }
         }
 
-        public Game GetCurrentGame()
+        public Game GetCurrentGame()                                                            // returns current game
         {
             return gameCurrent;
         }
 
-        public int GetPlayerOneWins()
+        public int GetPlayerOneWins()                                                           // returns player one total wins
         {
             return intPlayerOne;
         }
 
-        public int GetPlayerTwoWins()
+        public int GetPlayerTwoWins()                                                           // returns player two total wins
         {
             return intPlayerTwo;
         }
 
-        public void PlayerOneWins()
+        public void PlayerOneWins()                                                             // increases player one wins by 1
         {
             intPlayerOne++;
         }
 
-        public void PlayerTwoWins()
+        public void PlayerTwoWins()                                                             // increases player two wins by 1
         {
             intPlayerTwo++;
         }
 
-        public bool IsThereAI()
+        public bool IsThereAI()                                                                 // returns if an ai is active in the current session
         {
             return boolAi;
         }
