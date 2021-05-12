@@ -23,11 +23,11 @@ namespace JamesMoonNoahConveryAssgt
             lblBotName.Text = "Kitt";
             lblBotName.Visible = true;
         }
-
+        // button that starts the game
         private void btnStart_Click(object sender, EventArgs e)
         {
             bool enableAI = false;
-            if (rbOnePlayer.Checked)
+            if (rbOnePlayer.Checked) 
             {
                 sP1Name = txbxPlayerOneName.Text;
                 if (sP1Name == "")
