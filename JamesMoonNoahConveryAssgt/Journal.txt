@@ -73,3 +73,10 @@ Members present: James & Noah
 - Updates:
 	-Noah edited the GroanGame.cs so that a player is randomly selected to go first.
 	-Also edited the pass button to change the text and color of the turn indicator.
+
+
+12/05/2021
+Members present: James & Noah
+- Changed game colours 
+- Fixed resolution size
+- Finished journal and program
