@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    Name: James Moon & Noah Convery
+    Date: 12/05/21
+    Description: The home page where the user can choose how many players, their names, and the score limit they would like to play to.
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -1,6 +1,6 @@
 /*
     Name: James Moon & Noah Convery
-    Date 12/05/21
+    Date: 12/05/21
     Description: This is the game page where players will play the game it contains the controls as buttons and updates the both scores and player turn labels.
     It also contains the method that creates the dice faces.
  */
@@ -255,7 +255,7 @@ namespace JamesMoonNoahConveryAssgt
             }
             else                                                                                                // if the player rolls a 6
             {
-                CreateDiceFaceSix(dice)                                                                         // generate dice face one
+                CreateDiceFaceSix(dice);                                                                        // generate dice face one
             }
         }
 
