@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    Name: James Moon & Noah Convery
+    Date: 12/5/21
+    Description: Class that contains player name and score.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

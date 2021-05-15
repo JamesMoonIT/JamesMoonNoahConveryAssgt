@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+    Name: James Moon & Noah Convery
+    Date: 12/05/21
+    Description: A class that contains information about the game such as the number of players, scores and turn order.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

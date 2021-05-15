@@ -1,3 +1,9 @@
+/*
+    Name: James Moon & Noah Convery
+    Date: 12/05/21
+    Description: This is the game page where players will play the game it contains the controls as buttons and updates the both scores and player turn labels.
+    It also contains the method that creates the dice faces.
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
