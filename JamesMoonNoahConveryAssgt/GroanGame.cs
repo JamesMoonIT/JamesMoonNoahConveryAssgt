@@ -178,6 +178,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 UpdateWins();                                                                                   // updates the wins of the current player
                 currentSession.GetCurrentGame().GameIsOver();                                                   // updates the game so it has ended
+                lblTurnIndicator.Text = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + " wins!";      // Displays winning player
                 btnRoll.Visible = false;                                                                        // hide the roll button
                 btnPass.Visible = false;                                                                        // hide the pass button
                 btnQuit.Enabled = true;                                                                         // re-enable the quit button
@@ -188,7 +189,7 @@ namespace JamesMoonNoahConveryAssgt
 
         private void MakePlayerTurn()                                                                           //Method that changes the turn indicator based on which players turn it is
         {
-            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";
+            lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";     // Updates player turn appearence
             if (currentSession.GetCurrentGame().WhosTurn() == 0)                                                // checks if its player 1's turn
             {
                 picbxTurnIndicator.BackColor = Color.FromArgb(69,00,81);                                        // changes background color of TurnIndicator picturebox
@@ -249,7 +250,7 @@ namespace JamesMoonNoahConveryAssgt
             }
             else                                                                                                // if the player rolls a 6
             {
-                CreateDiceFaceSix(dice)                                                                         // generate dice face one
+                CreateDiceFaceSix(dice);                                                                        // generate dice face one
             }
         }
 
