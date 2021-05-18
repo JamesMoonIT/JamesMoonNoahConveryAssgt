@@ -18,7 +18,8 @@ namespace JamesMoonNoahConveryAssgt
         private bool gameover;
         private Random rand = new Random();
 
-        public Game(Player playerOne, Player playerTwo, int finalGoal)                      // Game contructor called when a new game is created in GroanGame.
+        // Game contructor called when a new game is created in GroanGame.
+        public Game(Player playerOne, Player playerTwo, int finalGoal)
         {
             int intFirstTurn = rand.Next(0, 2);                                             // creates a random integer to see who starts the game
             gameover = false;                                                               // sets the game to true if the win condition is met
@@ -35,27 +36,32 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        public void GameIsOver()                                                            // sets game over to ended
+        // sets game over to ended
+        public void GameIsOver()
         {
             gameover = true;
         }
 
-        public bool IsGameOver()                                                            // checks if game has ended
+        // checks if game has ended
+        public bool IsGameOver()
         {
             return gameover;
         }
 
-        public void SetRunningScore(int score)                                              // stores running score
+        // stores running score
+        public void SetRunningScore(int score)
         {
             intRunning = score;
         }
 
-        public int GetRunningScore()                                                        // returns game running score
+        // returns game running score
+        public int GetRunningScore()
         {
             return intRunning;
         }
 
-        public void SwitchPlayers()                                                         // switches players
+        // switches players
+        public void SwitchPlayers()
         {
             if (intTurn == 0)
             {
@@ -67,17 +73,20 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        public Player[] GetPlayers()                                                        // returns player
+        // returns player
+        public Player[] GetPlayers()
         {
             return numOfPlayers;
         }
 
-        public int GetGoal()                                                                // returns game's goal
+        // returns game's goal
+        public int GetGoal()
         {
             return intGoal;
         }
 
-        public int WhosTurn()                                                               // returns who's turn it is
+        // returns who's turn it is
+        public int WhosTurn()
         {
             return intTurn;
         }

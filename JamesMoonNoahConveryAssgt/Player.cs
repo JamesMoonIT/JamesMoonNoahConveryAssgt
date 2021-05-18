@@ -11,28 +11,33 @@ using System.Threading.Tasks;
 
 namespace JamesMoonNoahConveryAssgt
 {
-    public class Player                                             // Player class that stores and retrieves player name and score
+    // Player class that stores and retrieves player name and score
+    public class Player                                             
     {
         private string strName;
         private int intScore;
 
-        public Player(string newPlayerName)                         // Constructor that stores player name and score. 
+        // Constructor that stores player name and score. 
+        public Player(string newPlayerName)                         
         {
             strName = newPlayerName;                                // Takes and stores a player name
             intScore = 0;                                           // Stores player score for later reference
         }
 
-        public string GetName()                                     // Returns the player name
+        // Returns the player name
+        public string GetName()                                     
         {
             return strName;
         }
 
-        public int GetScore()                                       // Returns the player score
+        // Returns the player score
+        public int GetScore()                                       
         {
             return intScore;
         }
 
-        public void SetScore(int newScore)                          // Stores the player score
+        // Stores the player score
+        public void SetScore(int newScore)                          
         {
             intScore = newScore;
         }

@@ -20,7 +20,8 @@ namespace JamesMoonNoahConveryAssgt
         private int intPlayerOne, intPlayerTwo;
         private bool boolAi;
 
-        public Session(string strP1Name, string strP2Name, int intScore, bool ai)               // Creates a session with player data and game data
+        // Creates a session with player data and game data
+        public Session(string strP1Name, string strP2Name, int intScore, bool ai)               
         {
             boolAi = ai;                                                                        // Set to true if an ai is present, false if otherwise
             intPlayerOne = 0;                                                                   // Total number of wins for player one
@@ -30,12 +31,14 @@ namespace JamesMoonNoahConveryAssgt
             gameCurrent = new Game(playerOne, playerTwo, intScore);                             // Creates a new game with player one and two's name, and score
         }
 
-        public void Restart(int iScore)                                                         // Creates a new game with player names and current score
+        // Creates a new game with player names and current score
+        public void Restart(int iScore)                                                         
         {
             gameCurrent = new Game(playerOne, playerTwo, iScore);                               // Calls new game class with variables
         }
 
-        public bool HasGameEnded()                                                              // checks and updates the game if the score has been reached
+        // checks and updates the game if the score has been reached
+        public bool HasGameEnded()                                                              
         {
             int score = gameCurrent.GetGoal();
             if ((GetCurrentGame().GetPlayers()[GetCurrentGame().WhosTurn()].GetScore() + GetCurrentGame().GetRunningScore()) >= score)
@@ -56,32 +59,38 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        public Game GetCurrentGame()                                                            // returns current game
+        // returns current game
+        public Game GetCurrentGame()                                                            
         {
             return gameCurrent;
         }
 
-        public int GetPlayerOneWins()                                                           // returns player one total wins
+        // returns player one total wins
+        public int GetPlayerOneWins()                                                           
         {
             return intPlayerOne;
         }
 
-        public int GetPlayerTwoWins()                                                           // returns player two total wins
+        // returns player two total wins
+        public int GetPlayerTwoWins()                                                           
         {
             return intPlayerTwo;
         }
 
-        public void PlayerOneWins()                                                             // increases player one wins by 1
+        // increases player one wins by 1
+        public void PlayerOneWins()                                                             
         {
             intPlayerOne++;
         }
 
-        public void PlayerTwoWins()                                                             // increases player two wins by 1
+        // increases player two wins by 1
+        public void PlayerTwoWins()                                                             
         {
             intPlayerTwo++;
         }
 
-        public bool IsThereAI()                                                                 // returns if an ai is active in the current session
+        // returns if an ai is active in the current session
+        public bool IsThereAI()                                                                 
         {
             return boolAi;
         }

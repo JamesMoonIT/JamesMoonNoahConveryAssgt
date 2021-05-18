@@ -28,6 +28,7 @@ namespace JamesMoonNoahConveryAssgt
             lblBotName.Text = "Kitt";                                                                                       // sets bot name to Kitt (hope you know the reference)
             lblBotName.Visible = true;                                                                                      // makes sure the bot name is visible
         }
+
         // button that starts the game
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -66,30 +67,36 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
+        // button that closes the game
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();                                                                                             // closes the program
         }
 
-        private void rbOnePlayer_CheckedChanged(object sender, EventArgs e)                                                 // if player two selected while player one selected
+        // if player two selected while player one selected
+        private void rbOnePlayer_CheckedChanged(object sender, EventArgs e)
         {
             txbxPlayerTwoName.Visible = false;                                                                              // hides player two name textbox
             lblBotName.Visible = true;                                                                                      // shows bot name
 
         }
 
-        private void tbScoreLimit_Scroll(object sender, EventArgs e)                                                        // if slider is slid
+        // if slider is slid
+        private void tbScoreLimit_Scroll(object sender, EventArgs e)                                                        
         {
             lblScoreLimit.Text = "Score Limit: First to " + tbScoreLimit.Value + " wins!";                                  // updates score label
         }
 
+
+        // button that opens the rules form
         private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules GroanRules = new GroanRules();                                                                       // creates GroanRules as a form
             GroanRules.Show();                                                                                              // shows GroanRules
         }
 
-        private void rbTwoPlayers_CheckedChanged(object sender, EventArgs e)                                                // if player one selected while player two selected
+        // if player one selected while player two selected
+        private void rbTwoPlayers_CheckedChanged(object sender, EventArgs e)                                                
         {
             txbxPlayerTwoName.Visible = true;                                                                               // shows player two textbox
             lblBotName.Visible = false;                                                                                     // hides bot name

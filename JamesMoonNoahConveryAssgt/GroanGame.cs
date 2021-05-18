@@ -26,8 +26,8 @@ namespace JamesMoonNoahConveryAssgt
         GroanRules GroanRules = new GroanRules();
         frmGroanHome GroanHome = new frmGroanHome();
 
-
-        public frmGroanGame(Session currentGame)                                                                // incroporates a new session with every form
+        // incroporates a new session with every form
+        public frmGroanGame(Session currentGame)
         {
             InitializeComponent();
             firstDice = picbxDice1.CreateGraphics();
@@ -43,12 +43,14 @@ namespace JamesMoonNoahConveryAssgt
             Application.DoEvents();
         }
 
-        private void btnRules_Click(object sender, EventArgs e)                                                 // Button that opens the rules page
+        // Button that opens the rules page
+        private void btnRules_Click(object sender, EventArgs e)
         {
             GroanRules.Show();                                                                                  // brings up the Rules window
         }
 
-        private void btnNewGame_Click(object sender, EventArgs e)                                               //Button that starts a new game only shown after the current game has finished
+        //Button that starts a new game only shown after the current game has finished
+        private void btnNewGame_Click(object sender, EventArgs e)
         {
             currentSession.Restart(currentSession.GetCurrentGame().GetGoal());                                  // Creates a new game in the session
             txtbxPlayer1Score.Text = "Cumulative Score:";                                                       // Reset's cumulative score box for player 1
@@ -67,13 +69,15 @@ namespace JamesMoonNoahConveryAssgt
             EnableButtons();                                                                                    // Re-enables all buttons on screen
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)                                                  // button that closes the game and returns you to the home menu
+        // button that closes the game and returns you to the home menu
+        private void btnQuit_Click(object sender, EventArgs e)
         {
             this.Close();                                                                                       // Closes GroanGame
             GroanHome.Show();                                                                                   // Shows GroanHome
         }
 
-        private void btnPass_Click(object sender, EventArgs e)                                                  //Button that passes the players turn and swaps to the other player
+        //Button that passes the players turn and swaps to the other player
+        private void btnPass_Click(object sender, EventArgs e)
         {
             PassTurn();                                                                                         // passes the current players turn
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)                  // checks if its player 2's turn and if there is an ai
@@ -83,7 +87,8 @@ namespace JamesMoonNoahConveryAssgt
             EnableButtons();                                                                                    // enables all buttons
         }
 
-        public void AIStart()                                                                                   //Start of the AI turn 
+        //Start of the AI turn 
+        public void AIStart()
         {
             DisableButtons();                                                                                   // disables all buttons
             string botTurn = "Ok now it's my turn";
@@ -92,7 +97,8 @@ namespace JamesMoonNoahConveryAssgt
             EnableButtons();                                                                                    // enables all game buttons
         }
 
-        private void btnRoll_Click(object sender, EventArgs e)                                                  //Button that rolls the dice 
+        //Button that rolls the dice 
+        private void btnRoll_Click(object sender, EventArgs e)
         {
             DisableButtons();                                                                                   // disables all buttons
             DiceRoll();                                                                                         // starts rolling the dice
@@ -106,7 +112,8 @@ namespace JamesMoonNoahConveryAssgt
             EnableButtons();                                                                                    // re-enables all buttons
         }
 
-        public void AITurn()                                                                                    //Method that starts the AI turn
+        //Method that starts the AI turn
+        public void AITurn()
         {
             if (currentSession.GetCurrentGame().WhosTurn() == 1)                                                // if its the ai's turn (in place incase its player 2's turn and there is no ai)
             {
@@ -119,7 +126,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void AIBrain()                                                                                  //Method that contains the logic behind the AI's turn
+        //Method that contains the logic behind the AI's turn
+        private void AIBrain()
         {
             if (currentSession.GetCurrentGame().GetRunningScore() < 11)                                         // checks the ai's running score for their turn if they had scored under 11
             {
@@ -131,7 +139,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void PassTurn()                                                                                 //Method that passes turn between players
+        //Method that passes turn between players
+        private void PassTurn()
         {
             int grabbedRunningScore = currentSession.GetCurrentGame().GetRunningScore();                                                                // grabs the game's current running score
             int playerscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetScore();                      // grabs the current players score
@@ -166,7 +175,8 @@ namespace JamesMoonNoahConveryAssgt
             MakePlayerTurn();                                                                                                                           // generates player turn visuals
         }
 
-        private void DiceRoll()                                                                                 // Method that simulates a dice roll
+        // Method that simulates a dice roll
+        private void DiceRoll()
         {
             DisableButtons();                                                                                   // disables all buttons
             ClearDice();                                                                                        // clears the dice so its not showing any faces
@@ -193,7 +203,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void MakePlayerTurn()                                                                           //Method that changes the turn indicator based on which players turn it is
+        //Method that changes the turn indicator based on which players turn it is
+        private void MakePlayerTurn()
         {
             lblTurnIndicator.Text = "It is " + currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetName() + "'s turn!";     // Updates player turn appearence
             if (currentSession.GetCurrentGame().WhosTurn() == 0)                                                // checks if its player 1's turn
@@ -206,7 +217,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CheckDice(int result1, int result2)                                                        //Method that Checks the numbers that have been rolled for any ones and applies the consequences for doing so
+        //Method that Checks the numbers that have been rolled for any ones and applies the consequences for doing so
+        private void CheckDice(int result1, int result2)
         {
             int runningscore = currentSession.GetCurrentGame().GetRunningScore();                               // grabs running score
             int currentscore = currentSession.GetCurrentGame().GetPlayers()[currentSession.GetCurrentGame().WhosTurn()].GetScore();         // grabs player score
@@ -232,7 +244,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void DisplayDice(int diceNum, int dice)                                                         //Method that displays the dice based on the number rolled
+        //Method that displays the dice based on the number rolled
+        private void DisplayDice(int diceNum, int dice)
         {
             if (diceNum == 1)                                                                                   // if the player rolls a 1
             {
@@ -260,13 +273,15 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void ClearDice()                                                                                //Method that clears the dice face 
+        //Method that clears the dice face 
+        private void ClearDice()
         {
             firstDice.Clear(Color.White);                                                                       // clears dice 1
             secondDice.Clear(Color.White);                                                                      // clears dice 2
         }
 
-        private void DisableButtons()                                                                           //Method that disables the buttons mainly used so the player cannot press them during the bots turn
+        //Method that disables the buttons mainly used so the player cannot press them during the bots turn
+        private void DisableButtons()
         {
             btnRoll.Enabled = false;                                                                            // disables roll
             btnPass.Enabled = false;                                                                            // disables pass
@@ -274,7 +289,8 @@ namespace JamesMoonNoahConveryAssgt
             btnQuit.Enabled = false;                                                                            // disables quit
         }
 
-        private void EnableButtons()                                                                            //Method that enables the buttons
+        //Method that enables the buttons
+        private void EnableButtons()
         {
             btnRoll.Enabled = true;                                                                             // enables roll
             btnPass.Enabled = true;                                                                             // enables pass
@@ -282,7 +298,8 @@ namespace JamesMoonNoahConveryAssgt
             btnQuit.Enabled = true;                                                                             // enables quit
         }
 
-        private void UpdateWins()                                                                               //Method that updates the wins 
+        //Method that updates the wins 
+        private void UpdateWins()
         {
             if (currentSession.GetCurrentGame().WhosTurn() == 0)                                                // if its player 1's turn
             {
@@ -294,7 +311,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceOne(int diceNumber)                                                          //Creates the dice face for the number 1
+        //Creates the dice face for the number 1
+        private void CreateDiceFaceOne(int diceNumber)
         {
             if (diceNumber == 1)
             {
@@ -308,7 +326,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceTwo(int diceNumber)                                                          //Creates the dice face for the number 2
+        //Creates the dice face for the number 2
+        private void CreateDiceFaceTwo(int diceNumber)
         {
             if (diceNumber == 1)
             {
@@ -324,7 +343,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceThree(int diceNumber)                                                        //Creates the dice face for the number 3
+        //Creates the dice face for the number 3
+        private void CreateDiceFaceThree(int diceNumber)
         {
             if (diceNumber == 1)
             {
@@ -342,7 +362,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceFour(int diceNumber)                                                         //Creates the dice face for the number 4
+        //Creates the dice face for the number 4
+        private void CreateDiceFaceFour(int diceNumber)
         {
             if (diceNumber == 1)
             {
@@ -362,7 +383,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceFive(int diceNumber)                                                         //Creates the dice face for the number 5
+        //Creates the dice face for the number 5
+        private void CreateDiceFaceFive(int diceNumber)
         {
             if (diceNumber == 1)
             {
@@ -384,7 +406,8 @@ namespace JamesMoonNoahConveryAssgt
             }
         }
 
-        private void CreateDiceFaceSix(int diceNumber)                                                          //Creates the dice face for the number 6
+        //Creates the dice face for the number 6
+        private void CreateDiceFaceSix(int diceNumber)
         {
             if (diceNumber == 1)
             {
