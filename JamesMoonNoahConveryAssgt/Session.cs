@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace JamesMoonNoahConveryAssgt
 {
+    // Session holds current game data and session details.
+    // Session is inspired by James's own code from INFT2012 in 2020 on Github here: https://github.com/KarlKFoley/Inft2012-SixOfOne/blob/master/KarlFoleyJamesMoon/KarlFoleyJamesMoon/Sessions.cs
+    // The reuse of some logic was for the benefit of keeping track of data in different constructors rather than reseting the entire form. This is to avoid having any issues with overloading or overwritten data that may mess with code.
     public class Session
     {
         private Player playerOne, playerTwo;

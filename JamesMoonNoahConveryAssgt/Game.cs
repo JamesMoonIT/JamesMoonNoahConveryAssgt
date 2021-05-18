@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace JamesMoonNoahConveryAssgt
 {
+    // Game help with communicating between session, game and player. It's main purpose is keepign track of game conditions and storing and retrieving player data.
+    // Game.cs is inspired by James's own code from INFT2012 in 2020 on Github here: https://github.com/KarlKFoley/Inft2012-SixOfOne/blob/master/KarlFoleyJamesMoon/KarlFoleyJamesMoon/Game.cs
+    // The reuse of some logic was for the benefit of keeping track of data in different constructors rather than reseting the entire form. This is to avoid having any issues with overloading or overwritten data that may mess with code.
     public class Game
     {
         private Player[] numOfPlayers = new Player[2];
