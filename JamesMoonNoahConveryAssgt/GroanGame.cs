@@ -57,15 +57,16 @@ namespace JamesMoonNoahConveryAssgt
             currentSession.GetCurrentGame().GetPlayers()[0].SetScore(0);                                        // Updates player 1's score
             txtbxPlayer2Score.Text = "Cumulative Score:";                                                       // Reset's cumulative score box for player 2
             currentSession.GetCurrentGame().GetPlayers()[1].SetScore(0);                                        // Updates player 2's score
+            txtbxRunningScore.Text = "0";                                                                       // Running Score set to 0
+            btnNewGame.Visible = false;                                                                         // Hides new game button
+            btnRoll.Visible = true;                                                                             // Shows Roll button
+            btnPass.Visible = true;
+            MakePlayerTurn();
             if (currentSession.IsThereAI() && currentSession.GetCurrentGame().WhosTurn() == 1)                  // Checks who is starting
             {
                 AIStart();                                                                                      // AI starts the game
             }
             MakePlayerTurn();                                                                                   // Creates the look of the players turn (failsafe)
-            txtbxRunningScore.Text = "0";                                                                       // Running Score set to 0
-            btnNewGame.Visible = false;                                                                         // Hides new game button
-            btnRoll.Visible = true;                                                                             // Shows Roll button
-            btnPass.Visible = true;                                                                             // Shows Pass button
             EnableButtons();                                                                                    // Re-enables all buttons on screen
         }
 
@@ -119,7 +120,7 @@ namespace JamesMoonNoahConveryAssgt
             {
                 System.Threading.Thread.Sleep(2000);                                                            // pause for 2 seconds
                 DiceRoll();                                                                                     // performs a dice roll
-                if (!currentSession.HasGameEnded())                                                             // checks if the game has ended
+                if (!currentSession.GetCurrentGame().IsGameOver())                                                             // checks if the game has ended
                 {
                     AIBrain();                                                                                  // runs ai logic
                 }
